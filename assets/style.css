@@ -200,13 +200,27 @@ section .container {
 
 .about .card button {
   background-color: var(--theme);
-  background-image: linear-gradient(315deg, var(--theme) 0%, #4d17cb 90%);
-  padding: 1.3rem 4rem !important;
-  height: fit-content !important;
-  border-radius: 1rem;
-  box-shadow: 0 0 0 0.3rem rgba(88, 47, 250, 0.4);
-  font-weight: 600;
-  margin-bottom: -2rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  height: 3rem;
+  padding-right: 1rem;
+  border-radius: 0.5rem 2rem 2rem 0.5rem;
+}
+.about .card button span {
+  padding: 0.9rem 1rem 1rem 1rem;
+  align-items: center;
+  vertical-align: middle;
+}
+.about .card button .icon-holder {
+  background-color: white;
+  width: 4rem;
+  height: 3rem;
+  margin-right: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  border-radius: 0 2rem 2rem 0;
 }
 
 .skills {
