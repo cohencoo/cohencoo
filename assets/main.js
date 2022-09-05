@@ -64,7 +64,7 @@ window.addEventListener('scroll', () => {
 })
 
 document.querySelector('nav').innerHTML = `
-<a href="/"><img src="../assets/icons/logo.png" alt="logo"></a>
+<a href="/"><img src="//cohencoo.github.io/cohencoo/assets/icons/logo.png" alt="logo"></a>
 <ul>
 <li><a href="/#about">About</a></li>
 <li><a href="/projects/">Projects</a></li>
