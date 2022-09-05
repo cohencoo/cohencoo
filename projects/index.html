@@ -99,7 +99,7 @@
           item.className = 'project'
           item.innerHTML = `<img src="../assets/icons/${skill.icon || skill.name.toLocaleLowerCase()}.png" alt="${skill.name}">
                 <h2>${skill.name}</h2>
-                <a target="_blank" rel="noopener noreferrer" href="${skill.url}">${skill.display_url || "<span style='color: #888; font-size: 0.9rem; cursor: not-allowed'>[No longer maintained]</span>"}</a>
+                <a target="_blank" rel="noopener noreferrer" href="${skill.url}">${skill.display_url || "<span style='color: #888; font-size: 0.9rem; cursor: not-allowed'>[Discontinued]</span>"}</a>
                 <p>${skill.description} </p>`
           document.getElementsByClassName('projects')[0].appendChild(item)
       })
