@@ -1,0 +1,118 @@
+/*==================================================
+ * Custom Components V2.0
+ * Cohen Coombs 2022 (c) All Rights Reserved
+ * Unauthorized copying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential
+ * Written by Cohen Coombs, 2022
+==================================================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url('elements.css');
+:root {
+  --background: #111111;
+  --component: #151515;
+  --text: #ffffff;
+  --subtext: #ccc;
+  --link: #3355ff;
+  --theme: #3150ff;
+  --slider: #bbbbbb;
+  --shade-1: #111111;
+  --shade-2: #222222;
+  --shade-3: #333333;
+  --theme-red: rgb(220, 30, 50);
+  --theme-green: rgb(60, 200, 80);
+  --theme-orange: rgb(255, 200, 30);
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: #ffffff;
+    --component: #eeeeee;
+    --text: #000000;
+    --subtext: #222222;
+    --link: #3355ff;
+    --theme: #3150ff;
+    --slider: #bbbbbb;
+    --shade-1: #ffffff;
+    --shade-2: #eeeeee;
+    --shade-3: #dddddd;
+    --theme-red: rgb(220, 30, 50);
+    --theme-green: rgb(60, 200, 80);
+    --theme-orange: rgb(255, 200, 30);
+  }
+}
+* {
+  box-sizing: border-box;
+  transition: 0.4s;
+}
+::selection {
+  background-color: rgba(100, 150, 255, 0.3);
+  color: var(--text);
+}
+body {
+  background: var(--background);
+  color: var(--text);
+  padding: 0;
+  margin: 0;
+  font-family: 'Nunito', sans-serif;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  overflow-x: hidden;
+}
+.app-container {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0 20vw 0 20vw;
+}
+@media screen and (max-width: 768px) {
+  .app-container {
+    padding: 1rem;
+    margin-top: 2rem;
+  }
+  #read-now, #read-ahead {
+    font-size: 3rem;
+  }
+}
+h1 {
+  font-weight: 600;
+  font-size: 3rem;
+  margin-bottom: 0;
+}
+
+textarea {
+  padding: 1rem;
+  font-size: 1rem;
+  background-color: transparent;
+  color: white;
+  height: 10rem;
+  border-radius: 8px;
+  width: 100%;
+  box-shadow: none !important;
+  border: 2px solid var(--shade-3);
+}
+#read-button {
+  margin-right: 0.4rem;
+}
+#reset {
+  background: var(--shade-2);
+}
+#reader {
+  width: 100%; 
+  height: 100vw;
+  background: #111;
+  text-align: center;
+  padding: 2rem;
+  color: rgb(255, 200, 0);
+  font-size: 10rem;
+  font-weight: 600;
+  margin-top: 100vh;
+}
+#reader #read-ahead {
+  color: rgb(100, 100, 100);
+  font-size: 4rem;
+  font-weight: 600;
+}

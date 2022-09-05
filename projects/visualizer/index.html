@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="UTF-8">
+    <title>Visualizer</title>
+    <link href="https://fonts.googleapis.com/css?family=Saira" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <audio id="audio" controls></audio>
+    <div id="content">
+      <label style="text-align: center;" id="upload-audio" for="file-upload" class="file"> 
+        <p>Click to upload audio</p>
+        <script src="https://cdn.lordicon.com/libs/mssddfmo/lord-icon-2.1.0.js"></script>
+        <lord-icon
+            src="https://cdn.lordicon.com/apuwlldu.json"
+            trigger="loop"
+            colors="primary:#e4e4e4,secondary:#e8308c"
+            style="width:250px;height:250px">
+        </lord-icon>
+        <input type="file" id="file-upload" accept="audio/*" />
+      </label>
+      <div id="out"></div>
+    </div>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/84/three.min.js'></script>
+    <script src='https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/OrbitControls.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.3.0/simplex-noise.min.js'></script>
+    <script src="main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,93 @@
+:root {
+  --bgColor: hsla(242, 86%, 6%, 1);
+  --bgColorLight: hsla(242, 86%, 24%, 1);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  color: #fff;
+  font-family: 'Saira', sans-serif;
+  position: relative;
+}
+
+body {
+  background: var(--bgColor);
+  background: linear-gradient(135deg, var(--bgColor), var(--bgColorLight));
+  transition: 0.4s !important;
+}
+
+#out {
+  transition: 0.4s !important;
+}
+
+* {
+  box-sizing: border-box;
+  transition: all 0.12s cubic-bezier(0.42, 0.54, 0.22, 1.26);
+}
+
+#canvas {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+audio {
+  position: fixed;
+  left: 10px;
+  bottom: -10px;
+  width: calc(100% - 20px);
+}
+
+audio.active {
+  bottom: 10px;
+}
+
+#file-upload {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: 1;
+}
+
+label.file {
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  padding: 1rem 2rem;
+  border-radius: 4px;
+  font-size: 1.25em;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+label.file.normal {
+  transform: translate3d(10%, 50%, 0);
+  padding: 0.2rem 2rem;
+  font-size: 1rem;
+  top: 0;
+  left: 0;
+}
+
+#audio {
+  position: fixed;
+  opacity: .02; 
+  left: 0; 
+  bottom: 0; 
+  z-index: 100; 
+  width: 20rem;
+  transition: 0.7s;
+}
+#audio:hover {
+  opacity: 0.95 !important;
+}

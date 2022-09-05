@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <h1 style="margin: 0">Script Prompter</h1>
+        <p style="margin: 0 0 1rem 0; border:0" class="subtitle">A lightweight, modern teleprompter</p>
+        <textarea placeholder="Enter prompt text..." type="text" id="read"></textarea>
+        <br>
+        <a id="read-button" href="#reader"> <button onclick="read(document.getElementById('read').value.trim())">Start Prompt</button> </a>
+        <button id="reset" onclick="reset()">Reset</button>
+    </div>
+    <div id="reader">
+        <div id="read-now"></div>
+        <div id="read-ahead"></div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
