@@ -7,11 +7,15 @@ const currentYear = new Date().getFullYear()
 
 function contact() {
   Menu.open({
-      title: 'Get in contact',
+      title: 'Contact links',
       content: `
 Send me a message, inquiry or collaborate in a project. Hope to hear from you.
 <br><br>
-<a style="font-size: 1.1rem; font-weight: 600" href="mailto:cohencoombs@outlook.com"> cohencoombs@outlook.com </a>`}, true)}
+<svg xmlns="http://www.w3.org/2000/svg" style="margin-right: 1rem; width: 1.2rem; height: 1.2rem; vertical-align: middle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+<a style="font-size: 1.1rem; font-weight: 500;" href="https://www.linkedin.com/in/cohencoombs/" target="_blank"> www.linkedin.com/in/cohencoombs</a>
+<br><br>
+<svg xmlns="http://www.w3.org/2000/svg" style="margin-right: 1rem; width: 1.2rem; height: 1.2rem; vertical-align: middle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-at-sign"><circle cx="12" cy="12" r="4"></circle><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"></path></svg>
+<a style="font-size: 1.1rem; font-weight: 500;" href="mailto:cohencoombs@outlook.com"> cohencoombs@outlook.com </a>`}, true)}
 
 var $CONTAINER, $POPUP
 var menus = []
@@ -55,12 +59,14 @@ const Menu = {
 }
 
 window.addEventListener('scroll', () => {
-    let card = document.querySelector('.card')
-    card.style.transition = '0.1s';
-    if (window.scrollY >= 10) {
-        if (window.innerWidth <= 1024) card.style.transform = `translate(0%, -${window.scrollY-50/0.8}px)`
-        else card.style.transform = `translate(-50%, -${window.scrollY-50/0.8}px)`
-    }
+    try {
+        let card = document.querySelector('.card')
+        card.style.transition = '0.1s';
+        if (window.scrollY >= 10) {
+            if (window.innerWidth <= 1024) card.style.transform = `translate(0%, -${window.scrollY-50/0.8}px)`
+            else card.style.transform = `translate(-50%, -${window.scrollY-50/0.8}px)`
+        }
+    } catch(err) {}
 })
 
 document.querySelector('nav').innerHTML = `
@@ -75,14 +81,21 @@ document.querySelector('footer').innerHTML = `
     <h2>Get In Touch</h2><br>
     Send me a message, inquiry or collaboration - <a style="font-size: 1.1rem; font-weight: 600" href="mailto:cohencoombs@outlook.com"> cohencoombs@outlook.com </a>
 </div>
-<div class="container">
-<ul>
-  <h2 style="font-weight: 600">Resources</h2>
-  <li><a href="projects/">Projects</a></li>
-  <li><span onclick="contact()">Contact</span></li>
-</ul>
-<p style="color: var(--subtext)">© Cohen Coombs ${currentYear}. All Rights Reserved</p>
-<br><br></div>`
+    <center>
+        <div class="container" style="style="width: 90vw; display: flex; width: fit-content; margin: 5rem 0 0 0">
+            <a href="../projects/"><span class="button" style="margin-right: 2rem">
+                Projects
+            </span></a>
+            <span onclick="contact()" class="button">
+                <span class="link">Contact</span>
+            </span>
+        </div>
+        <br><br>
+            <p style="color: var(--subtext)">© Cohen Coombs ${currentYear}. All Rights Reserved</p>
+        <br><br>
+        <br><br>
+    </center>
+`
 
 var inc = 0.1;
 var scl = 30;
