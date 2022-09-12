@@ -169,47 +169,5 @@
     <footer></footer>
     <script src="assets/main.js"></script>
     <script src="assets/p5.js"></script>
-    <script>
-      const formatAMPM = (date) => {
-          let hours = date.getHours();
-          let minutes = date.getMinutes();    
-          const ampm = hours >= 12 ? 'pm' : 'am';
-        
-          hours %= 12;
-          hours = hours || 12;    
-          minutes = minutes < 10 ? `0${minutes}` : minutes;
-        
-          const strTime = `${hours}:${minutes} ${ampm}`;
-        
-          return strTime;
-        };
-      setInterval(() => document.getElementById('clock').innerHTML = formatAMPM(new Date()), 1000)
-      setInterval(() => {
-      
-      const weekday = new Array(7);
-      weekday[0] = "Sunday";
-      weekday[1] = "Monday";
-      weekday[2] = "Tuesday";
-      weekday[3] = "Wednesday";
-      weekday[4] = "Thursday";
-      weekday[5] = "Friday";
-      weekday[6] = "Saturday";
-      
-          document.getElementById('day').innerHTML = weekday[new Date().getDay()]
-      })
-    </script>
-    <script id="rendered-js" type="module">
-    import confetti from "https://cdn.skypack.dev/canvas-confetti";
-    const mainInt = setInterval(() => {
-        if (formatAMPM(new Date()) == '10:36 pm') {
-            const stopConfetti = setInterval(confetti, 10)
-            setTimeout(() => {
-                clearInterval(stopConfetti)
-                clearInterval(mainInt)
-
-            }, 100)    
-        }
-    }, 10)
-    </script>
   </body>
 </html>
