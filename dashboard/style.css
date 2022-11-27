@@ -182,12 +182,13 @@ input {
   margin-top: 0;
   color: var(--subtext);
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 data {
   letter-spacing: 0.1rem;
-  font-size: 2rem;
+  font-size: 1.8rem;
+  font-weight: 500;
 }
 
 #current-time {
@@ -199,7 +200,7 @@ data {
 }
 
 .status-container {
-  background-color: #222;
+  background-color: rgba(100, 150, 255, 0.1);
   border-radius: 1rem;
   height: 5px;
   width: 100%;
@@ -207,7 +208,7 @@ data {
 
 .status-bar {
   margin-top: 0.5rem;
-  background-color: rgb(12, 48, 146);
+  background-color: rgb(0, 68, 255);
   box-shadow: 1px 1px 1rem rgb(0, 43, 160);
   width: 0;
   height: 5px;
