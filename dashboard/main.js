@@ -18,7 +18,7 @@ search.addEventListener("keyup", function(event) {
 
 let currentBattery = "N/A";
 if (navigator.getBattery) navigator.getBattery().then((battery) => currentBattery = (battery.level * 100))
-setInterval(document.title = time.date(), 200)
+setInterval(document.title = String(time.date()), 1000)
 
 weather('Adelaide', (data) => temperature = data.feels)
 setInterval(() => {
@@ -38,4 +38,4 @@ setInterval(() => {
   document.getElementById('current-weather').innerHTML = temperature + "°C"
   document.getElementById('current-battery').innerHTML = Math.trunc(currentBattery) + "%"
   document.getElementById('current-age').innerHTML = countAge[0] + '.' + countAge[1]
-});
+}, 5);
