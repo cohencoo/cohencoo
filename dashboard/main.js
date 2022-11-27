@@ -9,10 +9,11 @@ const birthDate = 31556900000;
 // })
 
 const search = document.getElementById("search")
-setInterval(() => search.focus(), 5)
+setInterval(() => search.focus())
 search.addEventListener("keyup", function(event) {
   if (event.keyCode === 13 && search.value.trim() !== "") {
     if (search.value.includes("http://") || search.value.includes("https://")) location.href = search.value
+    else if (search.value === "l" || search.value === "lo") location.href = "http://localhost:3000/"
     else window.open("https://www.google.com/search?q=" + search.value.trim().replaceAll(" ", "+"))
     search.value = ""
   }
