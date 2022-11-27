@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
+  </head>
+  <body>
+    <div class="banner">
+      <div class="container">
+        <div class="statistics">
+          <data style="font-size: 1rem" id="current-date">Nov 7 2022</data>
+          <data id="current-time">6:50:20 PM</data>
+          <data style="font-size: 1rem" id="current-day">Sunday</data>
+        </div>
+        <center>
+          <input placeholder="Search..." autocomplete="off" type="text" name="text" id="search">
+        </center>
+      </div>
+    </div>
+    <div class="app-container">
+      <div class="dashboard">
+        <div class="item">
+          <h2>Precise Age</h2>
+          <data id="current-age">0</data>
+        </div>
+        <div class="item">
+          <h2>Birthday Countdown</h2>
+          <data id="current-countdown">0</data>
+        </div>
+        <div class="item">
+          <h2>Day Completed</h2>
+          <data id="current-complete">0%</data>
+          <div class="status-container">
+            <div class="status-bar" id="current-complete-status"></div>
+          </div>
+        </div>
+        <div class="item">
+          <h2>Temperature</h2>
+          <data id="current-weather">0</data>
+        </div>
+        <div class="item">
+          <h2>Battery</h2>
+          <data id="current-battery">0%</data>
+        </div>
+        <div class="item">
+          <h2>Year Completed</h2>
+          <data id="current-complete-year">0%</data>
+          <div class="status-container">
+            <div class="status-bar" id="current-complete-year-status"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="assets/time.js"></script>
+    <script src="assets/weather.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
