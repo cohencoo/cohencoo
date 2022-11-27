@@ -2,11 +2,11 @@ let temperature = 0;
 const birthday = "September 13 2023"
 const birthDate = 31556900000;
 
-window.addEventListener("scroll", function() {
-  let scrollPosition = window.scrollY;
-  let a = (500 / scrollPosition);
-  if (a >= 1 && a <= 8) document.getElementsByClassName("app-container")[0].style.padding = `0 ${a}vw 0  ${a}vw`;
-})
+// window.addEventListener("scroll", function() {
+//   let scrollPosition = window.scrollY;
+//   let a = (500 / scrollPosition);
+//   if (a >= 1 && a <= 8) document.getElementsByClassName("app-container")[0].style.padding = `0 ${a}vw 0  ${a}vw`;
+// })
 
 const search = document.getElementById("search")
 setInterval(() => search.focus(), 200)
