@@ -170,6 +170,7 @@ input {
   overflow: hidden;
   min-height: 7rem;
   border-radius: 6px;
+  transition: 0.15s;
 }
 
 .dashboard .item:hover {
