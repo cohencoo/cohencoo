@@ -1,0 +1,256 @@
+/*==================================================
+ * Custom Components V2.0
+ * Cohen Coombs 2022 (c) All Rights Reserved
+ * Unauthorized copying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential
+ * Written by Cohen Coombs, 2022
+==================================================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url('elements.css');
+:root {
+  --background: #111111;
+  --component: #151515;
+  --text: #ffffff;
+  --subtext: #ccc;
+  --link: #3355ff;
+  --theme: #3150ff;
+  --slider: #bbbbbb;
+  --shade-1: #111111;
+  --shade-2: #222222;
+  --shade-3: #333333;
+  --theme-red: rgb(220, 30, 50);
+  --theme-green: rgb(60, 200, 80);
+  --theme-orange: rgb(255, 200, 30);
+}
+
+@media (prefers-color-scheme: light) {
+   :root {
+    --background: #ffffff;
+    --component: #eeeeee;
+    --text: #000000;
+    --subtext: #222222;
+    --link: #3355ff;
+    --theme: #3150ff;
+    --slider: #bbbbbb;
+    --shade-1: #ffffff;
+    --shade-2: #eeeeee;
+    --shade-3: #dddddd;
+    --theme-red: rgb(220, 30, 50);
+    --theme-green: rgb(60, 200, 80);
+    --theme-orange: rgb(255, 200, 30);
+  }
+}
+
+* {
+  box-sizing: border-box;
+  transition: 0.4s;
+}
+
+::selection {
+  background-color: rgba(100, 150, 255, 0.3);
+  color: var(--text);
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
+  padding: 0;
+  margin: 0;
+  font-family: 'Nunito', sans-serif;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  overflow-x: hidden;
+}
+
+.app-container {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0 20vw 0 20vw;
+}
+
+@media screen and (max-width: 1024px) {
+  #prompt {
+    font-size: 1.1rem !important;
+  }
+  #toggleScreen {
+    display: none !important;
+  }
+}
+@media screen and (max-width: 768px) {
+  .app-container {
+    padding: 1rem;
+    margin-top: 2rem;
+  }
+  .logo {
+    top: 0 !important;
+    left: 0 !important;
+    padding: 0.4rem !important;
+  }
+  .display-result {
+    margin: 0 !important;
+    flex-direction: row !important;
+    display: block !important;
+  }
+}
+@media screen and (max-width: 500px) {
+  .selector, .chart-container, .tool:nth-child(2), .tool:nth-child(3) {
+    display: none !important;
+  }
+}
+
+kbd {
+  background-color: var(--shade-3);
+  color: var(--subtext);
+  border-radius: 5px;
+  padding: 0 0.5rem 0.2rem 0.5rem;
+}
+.completed-bar {
+  border-radius: 100rem; 
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 5px; 
+  background-color: var(--component);
+}
+.completed {
+  height: 100%; 
+  border-radius: 100rem; 
+  background: var(--theme);
+  opacity: 0.8;
+}
+.logo {
+  position: fixed;
+  top: 1rem;
+  left: 2rem;
+  font-size: 1.8rem;
+  color: var(--theme);
+  font-weight: 900;
+  text-transform: uppercase;
+  padding: 0.4rem 1rem 0.4rem 0.4rem;
+}
+.logo:hover {
+  cursor: pointer;
+  border-radius: 1rem;
+  box-shadow: 0 0 0 2px var(--component);
+}
+.logo img {
+  width: 3.5rem;
+  height: 3.5rem;
+  vertical-align: middle;
+  margin-right: 1rem;
+}
+#prompt {
+  font-size: 1.5rem;
+  color: var(--subtext);
+  white-space: normal;
+  word-wrap: break-word;
+}
+.progress {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--theme-orange);
+  margin-bottom: 1rem;
+}
+.selector {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+.selector div {
+  cursor: pointer;
+  padding: 0.3rem 0.8rem;
+  margin-right: 0.5rem;
+  font-weight: 500;
+  background: var(--component);
+  border-radius: 4px;
+  color: var(--subtext);
+  border: 1px solid var(--shade-2);
+}
+#switch div:last-child {
+  font-size: 1.3rem;
+  font-weight: 400 !important;
+  padding: 0.1rem 0.8rem;
+}
+.selector div:hover {
+  background: var(--shade-2);
+  color: var(--text);
+}
+.tool {
+  padding: 0.6rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  color: var(--subtext);
+  display: inline-block;
+  margin-right: 0.25rem;
+}
+.tool:hover {
+  background-color: var(--shade-2);
+  color: var(--text);
+}
+.tool:focus {
+  transform: rotate(-360deg);
+}
+.caret {
+  display: inline-block; 
+  margin: 0 0.1rem -0.3rem 0; 
+  border-radius: 2px; 
+  width: 4px; 
+  height: 24px; 
+  background: var(--theme-orange);
+  animation: flash 1s ease-in-out infinite;
+}
+.wrong {
+  margin: 0 0.4rem -0.3rem 0; 
+  background: var(--theme-red);
+}
+@keyframes flash {
+  0% { opacity: 0 }
+  50% { opacity: 0.7 }
+  100% { opacity: 0 }
+}
+.display-result h1 {
+  font-size: 1.5rem;
+  margin-bottom: 0; 
+  font-weight: 500; 
+  color: var(--subtext)
+}
+.display-result .result {
+  font-size: 2rem; 
+  font-weight: 700; 
+  color: var(--theme-orange)
+}
+.display-result .result:nth-child(2) {
+  font-size: 3rem !important;
+  font-weight: 900; 
+}
+.wpm-display {
+  opacity: 0;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--subtext);
+  text-transform: uppercase;
+}
+.chart-container {
+  margin: 0 5rem;
+  height: 60vh; 
+  width: 50vw;
+}
+.menu-button {
+  color: var(--text); 
+  background: var(--shade-3); 
+  margin: 1rem 0 -1rem 0;
+}
+.difficulty-slider {
+  background: linear-gradient(to right, var(--theme-green), var(--theme-orange), var(--theme-red));
+}
