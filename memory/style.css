@@ -1,0 +1,123 @@
+/*==================================================
+ * Custom Components V2.0
+ * Cohen Coombs 2022 (c) All Rights Reserved
+ * Unauthorized copying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential
+ * Written by Cohen Coombs, 2022
+==================================================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url('elements.css');
+:root {
+  --background: #111111;
+  --component: #151515;
+  --text: #ffffff;
+  --subtext: #ccc;
+  --link: #3355ff;
+  --theme: #3150ff;
+  --slider: #bbbbbb;
+  --shade-1: #111111;
+  --shade-2: #222222;
+  --shade-3: #333333;
+  --theme-red: rgb(220, 30, 50);
+  --theme-green: rgb(60, 200, 80);
+  --theme-orange: rgb(255, 200, 30);
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: #ffffff;
+    --component: #eeeeee;
+    --text: #000000;
+    --subtext: #222222;
+    --link: #3355ff;
+    --theme: #3150ff;
+    --slider: #bbbbbb;
+    --shade-1: #ffffff;
+    --shade-2: #eeeeee;
+    --shade-3: #dddddd;
+    --theme-red: rgb(220, 30, 50);
+    --theme-green: rgb(60, 200, 80);
+    --theme-orange: rgb(255, 200, 30);
+  }
+}
+* {
+  box-sizing: border-box;
+  transition: 0.4s;
+}
+::selection {
+  background-color: rgba(100, 150, 255, 0.3);
+  color: var(--text);
+}
+body {
+  background: var(--background);
+  color: var(--text);
+  padding: 0;
+  margin: 0;
+  font-family: 'Nunito', sans-serif;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  overflow-x: hidden;
+}
+.app-container {
+  text-align: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.app-container h1 {
+  font-size: 8rem;
+  font-weight: 600;
+  color: #ffb400;
+  opacity: 0%;
+}
+.app-container .input-container {
+  border: rgb(0, 42, 179) 3px solid;
+  box-shadow: 0 0 0 8px rgba(5, 63, 255, 0.2);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 1rem;
+  padding: 0.5em 0 0.5em 0.5em;
+  font-family: inherit;
+  display: flex;
+  opacity: 0%;
+}
+.field {
+  border: 2px solid var(--shade-2);
+  border-radius: 9px;
+  background-color: var(--component);
+  padding: 1rem;
+  margin-right: 0.5rem;
+  font-size: 2.5rem;
+  width: 100%;
+  height: 100%;
+}
+.field span {
+  color: var(--shade-3);
+}
+@media screen and (max-width: 700px) {
+  .app-container h1 {
+    font-size: 4rem;
+  }
+  .app-container .input-container {
+    border: none !important;
+    box-shadow: none !important;
+    background: none !important;
+    padding: 0;
+  }
+  .field {
+    font-size: 2rem;
+    padding: 0.7rem;
+  }
+}
+.result {
+  padding: 1rem;
+  border-radius: 10px;
+  display: flex;
+  background: transparent;
+  border: 2px solid var(--shade-3);
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
