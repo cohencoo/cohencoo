@@ -18,7 +18,11 @@ search.addEventListener("keyup", function(event) {
 
 let currentBattery = "N/A";
 if (navigator.getBattery) navigator.getBattery().then((battery) => currentBattery = (battery.level * 100))
-setInterval(document.title = String(time.date()), 1000)
+setInterval(() => {
+  try {
+    document.title = String(time.date().toString())
+  } catch(err) {}
+}, 1000)
 
 weather('Adelaide', (data) => temperature = data.feels)
 setInterval(() => {
