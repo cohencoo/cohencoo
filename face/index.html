@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Analysis</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div style="border-radius: 1rem; border: 2px solid var(--shade-2); overflow: hidden;">
+      <video id="video" class="video" height="425" width="500" autoplay muted></video>
+    </div>
+    <div class="statistics">
+      <div class="loader"></div>
+      <br>
+      <strong>Loading...</strong>
+    </div>
+    <script src="face.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
