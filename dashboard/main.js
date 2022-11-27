@@ -9,20 +9,18 @@ const birthDate = 31556900000;
 // })
 
 const search = document.getElementById("search")
-setInterval(() => search.focus(), 200)
+setInterval(() => search.focus(), 5)
 search.addEventListener("keyup", function(event) {
-  if (event.keyCode === 13) {
-    window.open("https://www.google.com/search?q=" + search.value.replaceAll(" ", "+"))
+  if (event.keyCode === 13 && search.value.trim() !== "") {
+    if (search.value.includes("http://") || search.value.includes("https://")) location.href = search.value
+    else window.open("https://www.google.com/search?q=" + search.value.trim().replaceAll(" ", "+"))
+    search.value = ""
   }
 })
 
 let currentBattery = "N/A";
 if (navigator.getBattery) navigator.getBattery().then((battery) => currentBattery = (battery.level * 100))
-setInterval(() => {
-  try {
-    document.title = String(time.date().toString())
-  } catch(err) {}
-}, 1000)
+document.title = String(time.date().toString())
 
 weather('Adelaide', (data) => temperature = data.feels)
 setInterval(() => {
