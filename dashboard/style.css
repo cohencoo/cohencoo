@@ -91,15 +91,18 @@ body {
   animation: banner 2s;
   animation-iteration-count: 1;
   background-position: 50% 90%;
+  filter: hue-rotate(0deg) saturate(100%)
 }
 
 @keyframes banner {
   0% {
     background-position: 50% 65%;
+    filter: hue-rotate(15deg) saturate(150%);
   }
 
   100% {
     background-position: 50% 90%;
+    filter: hue-rotate(0deg) saturate(100%);
   }
 }
 
