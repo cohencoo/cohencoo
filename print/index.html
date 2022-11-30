@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Printer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="controls">
+        <h2>
+            <div class="flex">
+                <span>X: <span id="xStatus">0</span></span>
+                <span>Y: <span id="yStatus">0</span></span>
+            </div>
+        </h2>
+        <p class="subtext">Export</p>
+        <input type="text" id="filename" autocomplete="off" name="text" placeholder="Project Title">
+        <button id="export">Generate G-CODE</button>
+    </div>
+    <div class="preview">
+        <p style="margin-top: 0" class="subtext">Plots</p>
+        <span id="preview"></span>
+        <br>
+        <button id="clearBtn" onclick="reset()" style="color: tomato">Clear Plots</button>
+    </div>
+    <canvas id="grid" class="grid"></canvas>
+    <script src="main.js"></script>
+</body>
+</html>
