@@ -2,14 +2,14 @@ let temperature = 0;
 const birthday = "September 13 2023"
 const birthDate = 31556900000;
 
-document.querySelector(".dashboard").addEventListener("mouseover", function() {
-  document.querySelector(".dashboard").style.transition = "0.3s";
-  if (window.scrollY < 10) document.querySelector(".dashboard").style.marginTop = "55vh";
-})
-document.querySelector(".dashboard").addEventListener("mouseout", function() {
-  document.querySelector(".dashboard").style.transition = "0.3s";
-  if (window.scrollY < 10) document.querySelector(".dashboard").style.marginTop = "77vh";
-})
+// document.querySelector(".dashboard").addEventListener("mouseover", function() {
+//   document.querySelector(".dashboard").style.transition = "0.3s";
+//   if (window.scrollY < 10) document.querySelector(".dashboard").style.marginTop = "55vh";
+// })
+// document.querySelector(".dashboard").addEventListener("mouseout", function() {
+//   document.querySelector(".dashboard").style.transition = "0.3s";
+//   if (window.scrollY < 10) document.querySelector(".dashboard").style.marginTop = "77vh";
+// })
 
 // window.addEventListener("scroll", function() {
 //   let scrollPosition = window.scrollY;
