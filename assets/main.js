@@ -199,21 +199,18 @@ document.addEventListener("scroll", (e) => {
             document.querySelector('nav').style.background = "var(--nav)"
             document.querySelector('nav').style.backdropFilter = "blur(1rem)"
             document.querySelector('nav').style.webkitBackdropFilter = "blur(1rem)"
-            banner.classList.add("banner--scrolled");
-            document.querySelector('.card').style.opacity = "1"
             document.querySelector("#services-cta").style.opacity = "1"
+            document.querySelector('.card').style.opacity = "1"
         } else {
             document.querySelector('nav').style.background = "none"
             document.querySelector('nav').style.backdropFilter = "none"
             document.querySelector('nav').style.webkitBackdropFilter = "none"
-            banner.classList.remove("banner--scrolled");
-            document.querySelector('.card').style.opacity = "0"
             document.querySelector("#services-cta").style.opacity = "0.5"
+            document.querySelector('.card').style.opacity = "0"
         }
 
         document.getElementById("canvas").style.scale = 1 + scroll / 2000;
         banner.style.borderRadius = `0 0 5rem 5rem`;
-        // banner.style.borderRadius = `0 0 ${scroll / 1.5 }px ${scroll / 1.5 }px`;
         banner.style.scale = 1 - scroll / 4000;
         banner.style.boxShadow = `inset 0px 0px ${scroll / 1.5 }px 0px rgba(255,255,255,0.02)`;
 
