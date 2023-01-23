@@ -9,15 +9,24 @@
 </head>
 <body>
     <div class="controls">
-        <h2>
+        <div class="container">
+            <h2>
+                <div class="flex">
+                    <span>X: <span id="xStatus">0</span></span>
+                    <span>Y: <span id="yStatus">0</span></span>
+                </div>
+            </h2>
+            <p class="subtext">Export</p>
+            <input type="text" id="filename" autocomplete="off" name="text" placeholder="Project Title">
+            <button id="export">Generate G-CODE</button>
+        </div>
+        <!-- <div class="container">
+            <p style="margin-top: -0.3rem" class="subtext">Create Circle</p>
             <div class="flex">
-                <span>X: <span id="xStatus">0</span></span>
-                <span>Y: <span id="yStatus">0</span></span>
+                <button style="height: 2.5rem; padding: 0.5rem 0.2rem; font-size: 0.9rem; width: 75%; margin-right: 0.5rem;" id="add-circle">Place at last position</button>
+                <input value="10" min="0" max="100" style="height: 2.5rem; font-size: 0.9rem; width: 25%; margin: 0;" placeholder="Ø" type="number" name="diameter" id="diameter">
             </div>
-        </h2>
-        <p class="subtext">Export</p>
-        <input type="text" id="filename" autocomplete="off" name="text" placeholder="Project Title">
-        <button id="export">Generate G-CODE</button>
+        </div> -->
     </div>
     <div class="preview">
         <p style="margin-top: 0" class="subtext">Plots</p>

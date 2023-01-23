@@ -39,10 +39,16 @@ canvas {
     transform: translateY(-50%);
     left: 4rem;
     width: 300px;
+}
+
+.controls .container {
     padding: 1rem;
     border-radius: 1rem;
     border: 1px solid rgb(255, 255, 255, 0.1);
     background-color: rgb(255, 255, 255, 0.03);
+    width: 100%;
+    height: fit-content;
+    margin-bottom: 1rem;
 }
 
 .controls h2 {

@@ -3,9 +3,13 @@ const ctx = canvas.getContext('2d');
 
 const exportBtn = document.getElementById("export");
 const clearBtn = document.getElementById("clearBtn");
+const circleBtn = document.getElementById("add-circle");
+const diameter = document.getElementById("diameter")
 const fileName = document.getElementById("filename");
 const preview = document.getElementById("preview");
 const [xStatus, yStatus] = [document.getElementById("xStatus"), document.getElementById("yStatus")];
+
+let [_X, _Y] = [0, 0] // Global X and Y
 
 const baseArea = 180 // Predicted area of the canvas (Bounds)
 const baseMultiplier = 3 // Only changes the scaled size of the canvas
@@ -16,6 +20,9 @@ let painting = false;
 
 canvas.width = (baseArea * baseMultiplier);
 canvas.height = (baseArea * baseMultiplier);
+ctx.lineWidth = 2.5;
+ctx.lineCap = 'round';
+ctx.strokeStyle = '#ffffff';
 
 function startPosition(e) {
     painting = true;
@@ -33,19 +40,24 @@ function finishedPosition() {
     canvas.style.boxShadow = "0 0 0 0.4rem rgba(255, 255, 255, 0.1)"
 }
 
+function roundToTwo(num) {
+    return +(Math.round(num + "e+2") + "e-2");
+}
+
 function draw(event) {
     if(!painting) return;
-    ctx.lineWidth = 3;
-    ctx.lineCap = 'round';
-    ctx.strokeStyle = '#ffffff';
-    if (event.offsetX >= baseArea * baseMultiplier || event.offsetY >= baseArea * baseMultiplier) return;
+    
+    _X = event.offsetX;
+    _Y = event.offsetY;
 
-    ctx.lineTo(event.offsetX, event.offsetY);
+    if (_X >= baseArea * baseMultiplier || _Y >= baseArea * baseMultiplier) return;
+
+    ctx.lineTo(_X, _Y);
     ctx.stroke();
     ctx.beginPath();
-    ctx.moveTo(event.offsetX, event.offsetY);
+    ctx.moveTo(_X, _Y);
 
-    let [x, y] = [Math.trunc(event.offsetY / baseMultiplier), Math.trunc(event.offsetX / baseMultiplier)]
+    let [x, y] = [roundToTwo(_Y / baseMultiplier), roundToTwo(_X / baseMultiplier)]
     if (x < 5 && y < 5) return
     xStatus.innerText = Math.trunc(x)
     yStatus.innerText = Math.trunc(y)
@@ -87,8 +99,8 @@ function generatePreviews() {
                 <span style="padding: 0.1rem 0.6rem; background: rgba(255, 255, 255, 0.05); border-radius: 3px">${plot[2]}</span>
                 <span class="info">
                     <span style="color: orange">G1</span>
-                    X <span style="color: aqua">${plot[0]}</span>
-                    Y <span style="color: tomato">${plot[1]}</span>
+                    X <span style="color: aqua">${Math.trunc(plot[0])}</span>
+                    Y <span style="color: tomato">${Math.trunc(plot[1])}</span>
                 </span>
             </div>
             `
@@ -116,10 +128,12 @@ function generate(name, data) {
 ;right_extruder_temperature_reset: 
 ;left_extruder_temperature_reset: 
 ;start gcode
+M107
 G92 E0 ; Reset Extruder
 G28 ; Home all axes
 G1 Z4
 ${data}
+G1 Y180 Z20
 M107
 ;percent
 ;End of gcode
@@ -144,3 +158,26 @@ exportBtn.addEventListener("click", () => {
     })
     generate(fn, format_gcode)
 })
+
+document.addEventListener("keydown", (e) => {
+    if (e.key === "r") reset()
+    // if (e.key === "c") {
+    //     let d = diameter.value
+    //     if (isFinite(d)) {
+    //         ctx.beginPath()
+    //         ctx.arc(_X, _Y, d * baseMultiplier, 0, 2 * Math.PI)
+    //         ctx.stroke()
+    //         ctx.closePath()
+    //     }
+    // }
+})
+
+// circleBtn.addEventListener("click", () => {
+//     let d = diameter.value
+//     if (isFinite(d)) {
+//         ctx.beginPath()
+//         ctx.arc(_X, _Y, d * baseMultiplier, 0, 2 * Math.PI)
+//         ctx.stroke()
+//         ctx.closePath()
+//     }
+// })

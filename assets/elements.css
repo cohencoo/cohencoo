@@ -26,6 +26,9 @@ a {
   color: var(--link);
   text-decoration: none;
 }
+a:hover {
+  color: var(--link) !important;
+}
 
 kbd {
   display: inline;
@@ -411,6 +414,7 @@ textarea:focus {
 /* Slider (12033) */
 
 input[type="range"] {
+  appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
@@ -424,6 +428,7 @@ input[type="range"] {
 }
 
 input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
