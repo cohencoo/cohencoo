@@ -355,23 +355,28 @@ footer .button:hover {
 }
 
 @media screen and (max-width: 768px) {
+  .intro {
+    left: 1rem !important;
+    width: 100%;
+  }
+  .intro h1 {
+    font-size: 3rem !important;
+  }
   .tags {
-    padding: 0.5rem !important;
-    margin-top: 1rem !important;
-    border-radius: 1rem !important;
-    max-width: 300px !important;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
   }
 
   .tags .tag {
-    font-weight: 500 !important;
-    font-size: 1rem;
-    background: rgba(255, 255, 255, 0.01) !important;
+    padding: 0.5rem !important;
+    border-radius: 10px !important;
+    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px) !important;
     -webkit-backdrop-filter: blur(10px) !important;
-    border-radius: 10px !important;
-    padding: 0.5rem !important;
-    margin: 0 0 0.5rem 0 !important;
     display: block;
+    width: fit-content;
   }
 
   section .skills-icon {
@@ -441,6 +446,10 @@ footer .button:hover {
 }
 
 @media screen and (max-width: 1024px) {
+  .intro {
+    left: 1rem !important;
+  }
+
   nav {
     width: 100vw;
     max-width: unset;
@@ -498,6 +507,19 @@ footer .button:hover {
 .carousel-container .carousel,
 .carousel-container .group {
   display: flex;
+}
+
+.carousel {
+  animation: scroll 8000s linear infinite;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-10000vw);
+  }
 }
 
 .carousel-container .carousel .item {

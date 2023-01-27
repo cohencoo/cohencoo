@@ -1,4 +1,11 @@
+const nav = document.querySelector('nav')
+const footer = document.querySelector('footer')
+const carousel = document.querySelector(".carousel")
 const currentYear = new Date().getFullYear()
+
+function isHome() {
+    return window.location.pathname == '/' || window.location.pathname == '/index.html'
+}
 
 function contact() {
     Menu.open({
@@ -14,7 +21,7 @@ function contact() {
     }, true)
 }
 
-document.querySelector('nav').innerHTML = `
+nav.innerHTML = `
 <a href="/"><img src="assets/icons/logo.png" alt="logo"></a>
 <ul>
     <li><a style="color: var(--subtext)" href="/#about">About</a></li>
@@ -30,7 +37,7 @@ document.querySelector('nav').innerHTML = `
 </ul>`
 
 
-document.querySelector('footer').innerHTML = `
+footer.innerHTML = `
 <div class="contact">
     <h2>Get In Touch</h2><br>
     You can send me a message at <a style="font-size: 1.1rem; font-weight: 600" href="mailto:cohencoombs@outlook.com"> cohencoombs@outlook.com </a>
@@ -51,21 +58,16 @@ document.querySelector('footer').innerHTML = `
     </center>
 `
 
-const starIcon = `<svg xmlns="http://www.w3.org/2000/svg" style="margin-right: 0.3rem; width: 1.3rem; height: 1.3rem; color: #ffc800;" viewBox="0 0 24 24" fill="#ffc800" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star">
-<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-</svg>`
+if (isHome()) for (i = 0; i < 5; i++)
+    document.getElementById("rating-section").innerHTML += `<svg xmlns="http://www.w3.org/2000/svg" style="margin-right: 0.3rem; width: 1.3rem; height: 1.3rem; color: #ffc800;" viewBox="0 0 24 24" fill="#ffc800" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>`
 
-for (i = 0; i < 5; i++) {
-    try {
-        document.getElementById("rating-section").innerHTML += starIcon
-    } catch (e) {}
-}
+let variation = 0
 
-var inc = 0.1;
-var scl = 30;
-var cols, rows, flow;
-var offset = 0;
-var particles = [];
+let inc = 0.04;
+let scl = 40;
+let cols, rows, flow;
+let offset = 0;
+let particles = [];
 const banner = "canvas"
 
 function windowResized() {
@@ -73,22 +75,23 @@ function windowResized() {
 };
 
 function setup() {
+    particles = [];
     createCanvas(windowWidth, windowHeight).parent(banner);
     colorMode(HSB, 360);
     cols = floor(width / scl);
     rows = floor(height / scl);
     flow = new Array(cols * rows);
-    for (var i = 0; i < 5000; i++) particles[i] = new Particle();
+    for (let i = 0; i < 3000; i++) particles[i] = new Particle();
 }
 
 function draw() {
-    var y_offset = 0;
-    for (var y = 0; y < rows; y++) {
-        var x_offset = 0;
-        for (var x = 0; x < cols; x++) {
-            var index = x + y * cols;
-            var angle = noise(x_offset, y_offset, offset) * TWO_PI * 4;
-            var v = p5.Vector.fromAngle(angle);
+    let y_offset = 0;
+    for (let y = 0; y < rows; y++) {
+        let x_offset = 0;
+        for (let x = 0; x < cols; x++) {
+            let index = x + y * cols;
+            let angle = noise(x_offset, y_offset, offset) * TWO_PI * 4;
+            let v = p5.Vector.fromAngle(angle);
             v.setMag(3);
             flow[index] = v;
             x_offset += inc;
@@ -97,7 +100,7 @@ function draw() {
         y_offset += inc;
         offset += 0.0001;
     }
-    for (var i = 0; i < particles.length; i++) {
+    for (let i = 0; i < particles.length; i++) {
         particles[i].follow(flow);
         particles[i].update();
         particles[i].edges();
@@ -105,14 +108,14 @@ function draw() {
     }
 }
 
-const minRange = 225;
-const maxRange = 270;
+let minRange = 225;
+let maxRange = 270;
 
 function Particle() {
     this.pos = createVector(random(width), random(height));
     this.vel = createVector(0, 0);
     this.acc = createVector(0, 0);
-    this.maxspeed = 8;
+    this.maxspeed = 11; // default 8
     this.alternate = false;
 
     this.prevPos = this.pos.copy();
@@ -138,10 +141,10 @@ function Particle() {
     };
 
     this.follow = function (vectors) {
-        var x = floor(this.pos.x / scl);
-        var y = floor(this.pos.y / scl);
-        var index = x + y * cols;
-        var force = vectors[index];
+        let x = floor(this.pos.x / scl);
+        let y = floor(this.pos.y / scl);
+        let index = x + y * cols;
+        let force = vectors[index];
         this.applyForce(force);
     };
 
@@ -180,54 +183,59 @@ function Particle() {
 }
 
 setInterval(() => {
-    try {
-        document.getElementById(banner).style.transition = "0.5s";
-        document.getElementById(banner).style.opacity = "0";
+    if (isHome()) {
+        const banner = document.getElementById(banner);
+        banner.style.transition = "0.5s";
+        banner.style.opacity = "0";
         setTimeout(() => {
+            variation++
+            if (variation % 2 == 0) {
+                minRange = 225;
+                maxRange = 270;
+            }
+            else {
+                minRange = 5;
+                maxRange = 80;
+            }
             setup();
-            document.getElementById(banner).style.opacity = "1"
+            banner.style.opacity = "1"
         }, 500);
-    } catch (e) {}
+    }
 }, 9000);
 
-document.addEventListener("scroll", (e) => {
-    try {
-        const scroll = window.scrollY;
-        const banner = document.querySelector(".banner");
+document.addEventListener("scroll", () => {
+    const scroll = window.scrollY;
+    const card = document.querySelector('.card');
+    const banner = document.querySelector(".banner");
 
-        if (scroll > 10) {
-            document.querySelector('nav').style.background = "var(--nav)"
-            document.querySelector('nav').style.backdropFilter = "blur(1rem)"
-            document.querySelector('nav').style.webkitBackdropFilter = "blur(1rem)"
-            document.querySelector("#services-cta").style.opacity = "1"
-            document.querySelector('.card').style.opacity = "1"
-        } else {
-            document.querySelector('nav').style.background = "none"
-            document.querySelector('nav').style.backdropFilter = "none"
-            document.querySelector('nav').style.webkitBackdropFilter = "none"
-            document.querySelector("#services-cta").style.opacity = "0.5"
-            document.querySelector('.card').style.opacity = "0"
-        }
+    if (scroll > 10) {
+        nav.style.background = "var(--nav)"
+        nav.style.backdropFilter = "blur(1rem)"
+        nav.style.webkitBackdropFilter = "blur(1rem)"
+        document.querySelector("#services-cta").style.opacity = "1"
+        if (isHome()) card.style.opacity = "1"
+    } else {
+        nav.style.background = "none"
+        nav.style.backdropFilter = "none"
+        nav.style.webkitBackdropFilter = "none"
+        document.querySelector("#services-cta").style.opacity = "0.5"
+        if (isHome()) card.style.opacity = "0"
+    }
 
+    if (isHome()) {
         document.getElementById("canvas").style.scale = 1 + scroll / 2000;
         banner.style.borderRadius = `0 0 5rem 5rem`;
         banner.style.scale = 1 - scroll / 4000;
         banner.style.boxShadow = `inset 0px 0px ${scroll / 1.5 }px 0px rgba(255,255,255,0.02)`;
-
-        let card = document.querySelector('.card')
+    
         card.style.transition = '0.1s';
         if (window.scrollY >= 10) {
             if (window.innerWidth <= 1024) {
                 card.style.transform = `translate(0%, -${window.scrollY-50/0.8}px)`
             } else card.style.transform = `translate(-50%, -${window.scrollY-50/0.8}px)`
         }
-    } catch (err) {}
+    }
 })
-
-
-const carousel = document.querySelector(".carousel")
-const increment = 0.4;
-let startAt = 0;
 
 let items = [{
         name: "HTML",
@@ -268,7 +276,6 @@ let items = [{
 ]
 
 function nextRender() {
-    if (window.location.href.includes("projects")) return;
     const group = document.createElement("div")
     group.className = "group"
 
@@ -285,18 +292,13 @@ function nextRender() {
     carousel.appendChild(group)
 };
 
-for (let i = 0; i < 6; i++) nextRender()
+if (isHome()) for (let i = 0; i < 6; i++) nextRender()
 
 setInterval(() => {
-    if (window.location.href.includes("projects")) return;
-    startAt += increment
-    carousel.style.transform = `translateX(-${startAt}px)`
-}, 10);
-
-setInterval(() => {
-    if (window.location.href.includes("projects")) return;
-    nextRender()
-    if (carousel.children && carousel.children.length > 10) {
-        for (let i = 0; i < 4; i++) carousel.removeChild(carousel.children[i])
+    if (isHome()) {
+        nextRender()
+        if (carousel.children && carousel.children.length > 10) {
+            for (let i = 0; i < 4; i++) carousel.removeChild(carousel.children[i])
+        }
     }
 }, 1000)
