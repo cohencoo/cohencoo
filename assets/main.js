@@ -184,9 +184,9 @@ function Particle() {
 
 setInterval(() => {
     if (isHome()) {
-        const banner = document.getElementById(banner);
-        banner.style.transition = "0.5s";
+        const banner = document.getElementById("canvas")
         banner.style.opacity = "0";
+        banner.style.transition = "0.5s";
         setTimeout(() => {
             variation++
             if (variation % 2 == 0) {
