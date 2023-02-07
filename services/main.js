@@ -18,7 +18,7 @@ function contact() {
 
 const slideshow = {
     slide: 1,
-    maxSlides: 5,
+    maxSlides: 6,
     slideClock: null,
     nextSlide: () => {
         slideshow.slide++
