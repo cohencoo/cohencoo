@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="splitter">
+        <div class="container toolbar">
+            <h2>Layout Generator</h2>
+            <hr>
+            <input type="text" id="doc-title" placeholder="Document Title">
+            <input type="text" id="nav-title" placeholder="Navigation Title">
+            <input type="text" id="nav-icon" placeholder="Navigation Icon">
+            <input type="text" id="nav-description" placeholder="Navigation Description">
+            <input type="text" id="footer-email" placeholder="Footer Email">
+            <input type="text" id="footer-copyright" placeholder="Footer Copyright">
+
+            <hr>
+
+            <button onclick="createPreview()">
+                Preview
+                <svg xmlns="http://www.w3.org/2000/svg" style="width: 1.2rem; height: 1.2rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </button>
+            <button onclick="finished()">
+                Export
+                <svg xmlns="http://www.w3.org/2000/svg" style="width: 1.2rem; height: 1.2rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-code"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+            </button>
+            <button onclick="location.reload()">
+                Reset
+                <svg xmlns="http://www.w3.org/2000/svg" style="width: 1.2rem; height: 1.2rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+            </button>
+        </div>
+
+        <div class="container preview">
+            <div class="screen">
+                <div class="window">
+                    <div class="red"></div>
+                    <div class="yellow"></div>
+                    <div class="green"></div>
+                    <span class="tab">
+                        <svg xmlns="http://www.w3.org/2000/svg" style="width: 1rem; height: 1rem; margin-right: 10px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                        <span id="tab"></span>
+                    </span>
+                </div>
+                <iframe id="iframe"></iframe>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        const docTitle = document.getElementById('doc-title')
+        const navTitle = document.getElementById('nav-title')
+        const navIcon = document.getElementById('nav-icon')
+        const navDescription = document.getElementById('nav-description')
+        const footerEmail = document.getElementById('footer-email')
+        const footerCopyright = document.getElementById('footer-copyright')
+
+
+        let template = {
+            html: "",
+            css: ""
+        }
+
+        async function createPreview() {
+            let html = await fetch("template/index.html")
+            let css = await fetch("template/style.css")
+
+            html = await html.text()
+            css = await css.text()
+
+            html = html
+                    .replace("{document-style}", `<style>${css}</style>`)
+                    .replace("{document-title}", docTitle.value || "My Website")
+                    .replace("{nav-title}", navTitle.value || "My Website")
+                    .replace("{nav-icon}", navIcon.value || "https://s3.ap-southeast-2.amazonaws.com/media.pretzel.space/profile/fdd294ec-7ff5-4626-b2d8-1a4c88a9c2ef")
+                    .replace("{nav-description}", navDescription.value || "This is My Website")
+                    .replaceAll("{footer-email}", footerEmail.value || "support@website.com")
+                    .replace("{footer-copyright}", footerCopyright.value || "Copyright (c) 2023 My Website")
+
+            document.getElementById('iframe').src = `data:text/html;charset=utf-8,${escape(html)}`
+            document.querySelector("#tab").innerHTML = docTitle.value ? docTitle.value + ` (${docTitle.value.toLowerCase()}.com) ` : "My Website (mywebsite.com)" 
+            template.html = html
+            template.css = css
+        }; createPreview()
+
+
+        function download(name, content) {
+            let element = document.createElement('a');
+            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + content);
+            element.setAttribute('download', name);
+            element.style.display = 'none';
+            document.body.appendChild(element);
+            element.click();
+            document.body.removeChild(element);
+        }
+
+        function finished() {
+            let removeStyles = template.html.replace(/<style>[\s\S]*<\/style>/, "")
+            download("index.html", escape(removeStyles))
+            download("style.css", escape(template.css))
+        }
+
+    </script>
+</body>
+</html>

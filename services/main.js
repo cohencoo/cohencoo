@@ -26,7 +26,7 @@ const slideshow = {
         slideshow.setSlide()
     },
     setSlide: () => {
-        banner.style.backgroundImage = `url(../assets/${slideshow.slide}.png)`
+        banner.style.backgroundImage = `url(banner/${slideshow.slide}.png)`
         document.querySelectorAll(".index").forEach((child, index) => {
             child.classList.remove("index-active")
             if (index + 1 === slideshow.slide) child.classList.add("index-active")
