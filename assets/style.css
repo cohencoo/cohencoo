@@ -90,7 +90,7 @@ button {
 
 .tags {
   padding: 1rem 0.5rem;
-  border-radius: 100rem;
+  border-radius: 10px;
   background: rgba(150, 150, 150, 0.03);
   -webkit-backdrop-filter: blur(1rem);
   backdrop-filter: blur(1rem);
@@ -98,11 +98,19 @@ button {
 
 .tags .tag {
   padding: 0.5rem 1rem;
-  border-radius: 100rem;
+  border-radius: 10px;
   background: rgba(150, 150, 150, 0.04);
   color: var(--text);
   font-weight: 500;
+  margin: 0 3px;
   font-size: 1.1rem;
+}
+
+.tags .tag svg {
+  width: 1.4rem;
+  height: 1.4rem;
+  margin-right: 0.5rem;
+  vertical-align: middle;
 }
 
 nav {
@@ -142,6 +150,10 @@ nav ul li a {
   font-size: 1.1rem;
   transition: 0.15s;
   position: relative;
+}
+
+nav .mobile-menu {
+  display: none;
 }
 
 section {
@@ -321,12 +333,9 @@ footer .button:hover {
 }
 
 @media screen and (max-width: 425px) {
-  .intro {
-    position: absolute;
-    top: 50%;
-    left: 1rem;
-    right: 1rem;
-    transform: translateY(-50%);
+  .tags .tag {
+    width: 100% !important;
+    display: flex !important;
   }
 
   .skills .title {
@@ -353,15 +362,27 @@ footer .button:hover {
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
+  .banner {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
   .intro {
-    left: 1rem !important;
-    width: 100%;
+    left: 0 !important;
+    width: 90%;
+    text-align: center;
+    padding: 0 !important;
+    margin: 0 !important;
   }
-  .intro h1 {
-    font-size: 3rem !important;
+  #canvas {
+    filter: blur(20px);
   }
+
   .tags {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     background: transparent;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
@@ -370,7 +391,7 @@ footer .button:hover {
   .tags .tag {
     padding: 0.5rem !important;
     border-radius: 10px !important;
-    margin-bottom: 10px;
+    margin: 5px !important;
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px) !important;
     -webkit-backdrop-filter: blur(10px) !important;
@@ -452,13 +473,18 @@ footer .button:hover {
   nav {
     width: 100vw;
     max-width: unset;
-    padding: 1rem;
+    padding: 10px 25px;
     left: 0rem;
     border-radius: 0 0;
+    display: flex;
+    justify-content: space-between;
     top: unset !important;
   }
   nav ul {
     display: none;
+  }
+  nav .mobile-menu {
+    display: block !important;
   }
 
   .card {

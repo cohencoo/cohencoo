@@ -34,7 +34,10 @@ nav.innerHTML = `
             <button id="services-cta" style="margin: 0; font-size: 0.9rem; padding: 0rem 1rem !important; opacity: 0.5; background: var(--theme); border-radius: 100rem; font-weight: 600">See Freelance Services</button>
         </a>
     </li>
-</ul>`
+</ul>
+<div class="mobile-menu">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+</div>`
 
 
 footer.innerHTML = `
@@ -81,7 +84,7 @@ function setup() {
     cols = floor(width / scl);
     rows = floor(height / scl);
     flow = new Array(cols * rows);
-    for (let i = 0; i < 3000; i++) particles[i] = new Particle();
+    for (let i = 0; i < 3000; i++) particles[i] = new Particle(); // set to 900000
 }
 
 function draw() {
@@ -223,8 +226,9 @@ document.addEventListener("scroll", () => {
     }
 
     if (isHome()) {
+        if (scroll > 10) banner.style.borderRadius = `0 0 5rem 5rem`;
+        else banner.style.borderRadius = `0`
         document.getElementById("canvas").style.scale = 1 + scroll / 2000;
-        banner.style.borderRadius = `0 0 5rem 5rem`;
         banner.style.scale = 1 - scroll / 4000;
         banner.style.boxShadow = `inset 0px 0px ${scroll / 1.5 }px 0px rgba(255,255,255,0.02)`;
     
