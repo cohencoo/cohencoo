@@ -24,10 +24,9 @@ function contact() {
 nav.innerHTML = `
 <a href="/"><img src="assets/icons/logo.png" alt="logo"></a>
 <ul>
-    <li><a style="color: var(--subtext)" href="/#about">About</a></li>
-    <li><a style="color: var(--subtext)" href="/projects/">Projects</a></li>
-    <li><a style="color: var(--subtext)" href="/services/">Services</a></li>
-    <li onclick="contact()"><a style="color: var(--subtext)" href="#">Contact</a></li>
+    <li><a href="/#about">About</a></li>
+    <li><a href="/projects/">Projects</a></li>
+    <li onclick="contact()"><a href="#">Contact</a></li>
 
     <li>
         <a href="/services/">
@@ -41,24 +40,26 @@ nav.innerHTML = `
 
 
 footer.innerHTML = `
-<div class="contact">
-    <h2>Get In Touch</h2><br>
-    You can send me a message at <a style="font-size: 1.1rem; font-weight: 600" href="mailto:cohencoombs@outlook.com"> cohencoombs@outlook.com </a>
-</div>
-    <center>
-        <div class="container" style="style="width: 90vw; display: flex; width: fit-content; margin: 5rem 0 0 0">
-            <a href="../projects/"><span class="button" style="margin-right: 2rem">
-                Projects
-            </span></a>
-            <span onclick="contact()" class="button">
-                <span class="link">Contact</span>
+    <h2>Contact</h2>
+    <div class="contact-methods">
+        <div class="item">
+            <span class="contact-method">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                Email
             </span>
+            <a href="mailto:cohencoombs@outlook.com"> cohencoombs@outlook.com </a>
         </div>
-        <br><br>
-            <p style="color: var(--subtext)">© Cohen Coombs ${currentYear}. All Rights Reserved</p>
-        <br><br>
-        <br><br>
-    </center>
+    </div>
+
+    <hr>
+
+    <h2>Links</h2>
+    <div class="link-container">
+        <a target="_blank" href="../projects/">Projects</a>
+        <a target="_blank" href="../services/">Services</a>
+    </div>
+    <br>
+    <p style="color: var(--subtext)"> © Cohen Coombs ${currentYear}. All Rights Reserved </p>
 `
 
 if (isHome()) for (i = 0; i < 5; i++)

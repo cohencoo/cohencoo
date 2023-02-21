@@ -107,18 +107,18 @@ button {
 }
 
 .tags .tag svg {
-  width: 1.4rem;
-  height: 1.4rem;
+  width: 1.2rem;
+  height: 1.2rem;
   margin-right: 0.5rem;
   vertical-align: middle;
 }
 
 nav {
-  padding: 0 1rem 0 1rem;
+  padding: 0 0 0 1rem;
   transition: 0.3s;
   border-radius: 100rem;
   position: fixed;
-  width: 750px;
+  width: fit-content;
   left: 2rem;
   top: 1rem;
   z-index: 200;
@@ -141,7 +141,7 @@ nav ul {
   list-style: none;
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  width: fit-content;
   align-items: center;
 }
 
@@ -150,6 +150,8 @@ nav ul li a {
   font-size: 1.1rem;
   transition: 0.15s;
   position: relative;
+  margin: 0 1rem;
+  color: var(--subtext);
 }
 
 nav .mobile-menu {
@@ -239,6 +241,26 @@ section .container {
   width: fit-content;
 }
 
+.freelance button {
+  background: var(--theme);
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 0.5rem 2rem;
+  height: fit-content;
+  border-radius: 100rem;
+  margin: 2rem 0 0 0 !important;
+  outline: 2px solid var(--theme);
+  outline-offset: 4px;
+  display: flex;
+  align-items: center;
+  transition: 0.3s;
+}
+
+.freelance button:hover {
+  outline-offset: unset;
+}
+
+
 .section-waves {
   background-image: var(--wave-url);
   width: 100%;
@@ -251,35 +273,60 @@ section .container {
 
 footer {
   background-color: var(--component);
-  color: #fff;
-}
-
-footer .contact {
-  padding: 4rem 10rem 0 10rem;
-  text-align: center;
-  background: var(--component);
+  margin-top: 5rem;
+  padding: 2rem 5rem;
 }
 
 footer h2 {
-  font-size: 2.5rem;
-  margin: 0;
+  font-weight: 600;
 }
 
-footer .button {
-  padding: 0.8rem 2rem;
-  border-radius: 100rem;
-  width: fit-content;
-  height: fit-content;
-  background: rgba(255, 255, 255, 0.04);
-  cursor: pointer;
-  margin: 2rem 0 -5rem 0;
-  display: inline-block;
-  transition: 0.3s;
+.contact-methods {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 2rem;
+}
+.contact-methods .item svg {
+  font-size: 2rem;
+  color: var(--subtext);
+  margin-right: 1rem;
+  width: 1.3rem;
+  height: 1.3rem;
+  stroke-width: 2;
+}
+.contact-methods .item p {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #000;
+  margin: 5px 0 0 0;
+}
+.contact-method {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.link-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2px;
 }
 
-footer .button:hover {
-  box-shadow: 0 0 0 1px rgb(84, 84, 84);
-  background: rgba(255, 255, 255, 0.1);
+@media screen and (max-width: 768px) {
+  nav .links {
+      display: none;
+  }
+  .mobile-nav {
+      display: inline !important;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .link-container {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+  }
+  footer {
+      padding: 2rem 1rem !important;
+  }
 }
 
 /* Projects Page */
@@ -414,10 +461,6 @@ footer .button:hover {
   section .container {
     display: flex;
     flex-direction: column;
-  }
-
-  footer .contact {
-    padding: 4rem 1rem !important;
   }
 
   .project-title {
