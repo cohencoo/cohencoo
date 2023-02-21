@@ -121,8 +121,9 @@
     width: 100%;
     max-width: 1450px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: 1rem;
+    align-items: center;
 }
 
 .about h1 {
@@ -133,13 +134,18 @@
 }
 
 .about-card {
+    background-color: #13131a;
+    padding: 2rem 3rem;
+    border-radius: 1rem;
+    transform: skew(-5deg);
     font-size: 1.1rem;
     text-align: left !important;
-    padding: 2rem 0;
     font-weight: 500;
 }
 
-
+.about-card p, .about-card .material-symbols-rounded {
+    transform: skew(5deg);
+}
 
 .footer {
     width: 100vw;
@@ -228,8 +234,15 @@
         text-align: center;
     }
     .about-card {
+        border-radius: 0 !important;
+        transform: none !important;
+        background: none;
         text-align: center !important;
     }
+    .about-card p, .about-card .material-symbols-rounded {
+        transform: none
+    }
+
 }
 
 

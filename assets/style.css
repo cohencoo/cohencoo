@@ -409,6 +409,10 @@ footer h2 {
   }
 }
 
+#canvas {
+  filter: blur(2px);
+}
+
 @media screen and (max-width: 900px) {
   .banner {
     padding: 0 !important;
