@@ -15,9 +15,7 @@
     </script>
     <script>
         var qrcode = new QRCode("qrcode");
-        document.getElementById("url").addEventListener("input", function () {
-            qrcode.makeCode(document.getElementById("url").value);
-        });
+        document.getElementById("url").addEventListener("input", () => qrcode.makeCode(document.getElementById("url").value));
     </script>
 </body>
 </html>

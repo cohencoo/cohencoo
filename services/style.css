@@ -55,7 +55,7 @@
 
 .banner-container {
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     max-height: 1100px;
     max-width: 1800px;
     left: 50%;
@@ -95,6 +95,7 @@
     display: flex;
     justify-content: space-between;
 }
+
 .banner-container .progress-container .index {
     height: 100%;
     border-radius: 100rem;
@@ -103,12 +104,15 @@
     transition: 1s;
     cursor: pointer;
 }
+
 .banner-container .progress-container .index:hover {
     background: rgba(255, 255, 255, 0.25);
 }
+
 .banner-container .progress-container .index:nth-child(even) {
     margin: 0 0.5rem;
 }
+
 .banner-container .index-active {
     background: white !important;
 }
@@ -143,15 +147,17 @@
     font-weight: 500;
 }
 
-.about-card p, .about-card .material-symbols-rounded {
+.about-card p,
+.about-card .material-symbols-rounded {
     transform: skew(5deg);
 }
 
 .footer {
-    width: 100vw;
+    width: 100%;
     border-top: 1px solid #333;
     padding: 2rem 12vw;
 }
+
 .footer .footer-links {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -187,6 +193,7 @@
     outline: 3px solid #ffbf00;
     outline-offset: 5px;
 }
+
 .quote svg {
     vertical-align: middle;
     margin-left: 1rem;
@@ -194,6 +201,7 @@
     height: 2.2rem;
     position: relative;
 }
+
 .quote:hover {
     background: #ffbf00;
     color: #282936;
@@ -205,41 +213,50 @@
         position: fixed;
         top: 0;
         left: 0;
-        width: 100vw;
+        width: 100%;
         z-index: 1000;
         padding: 1rem 2rem;
         background: #282936;
     }
+
     .nav .links {
         display: none;
     }
+
     .main {
         font-size: 4rem;
     }
+
     .banner-container {
         padding: 0 !important;
         height: 20rem;
         margin-top: -5rem;
     }
+
     .banner {
         border-radius: 0 !important;
         background-size: contain;
         background-repeat: no-repeat;
     }
+
     .about {
         grid-template-columns: 1fr;
         padding: 0 2rem;
     }
+
     .about h1 {
         text-align: center;
     }
+
     .about-card {
         border-radius: 0 !important;
         transform: none !important;
         background: none;
         text-align: center !important;
     }
-    .about-card p, .about-card .material-symbols-rounded {
+
+    .about-card p,
+    .about-card .material-symbols-rounded {
         transform: none
     }
 
@@ -262,7 +279,9 @@
     color: black;
 }
 
-.page input, .page textarea, .page select {
+.page input,
+.page textarea,
+.page select {
     background: rgba(0, 0, 0, 0.05);
     border: 0;
     width: 70% !important;

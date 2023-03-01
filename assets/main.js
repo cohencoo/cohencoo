@@ -2,10 +2,7 @@ const nav = document.querySelector('nav')
 const footer = document.querySelector('footer')
 const carousel = document.querySelector(".carousel")
 const currentYear = new Date().getFullYear()
-
-function isHome() {
-    return window.location.pathname == '/' || window.location.pathname == '/index.html'
-}
+const isHome = () => window.location.pathname == '/' || window.location.pathname == '/index.html'
 
 function contact() {
     Menu.open({
@@ -13,12 +10,33 @@ function contact() {
         content: `
         Contact me via linkedin or email.
         <br><br>
-        <svg xmlns="http://www.w3.org/2000/svg" style="margin-right: 1rem; width: 1.2rem; height: 1.2rem; vertical-align: middle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" style="margin-right: 1rem; width: 1.2rem; height: 1.2rem; vertical-align: middle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
         <a style="font-size: 1.1rem; font-weight: 500;" href="https://www.linkedin.com/in/cohencoombs/" target="_blank"> www.linkedin.com/in/cohencoombs</a>
         <br><br>
-        <svg xmlns="http://www.w3.org/2000/svg" style="margin-right: 1rem; width: 1.2rem; height: 1.2rem; vertical-align: middle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-at-sign"><circle cx="12" cy="12" r="4"></circle><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"></path></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" style="margin-right: 1rem; width: 1.2rem; height: 1.2rem; vertical-align: middle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"></path></svg>
         <a style="font-size: 1.1rem; font-weight: 500;" href="mailto:cohencoombs@outlook.com"> cohencoombs@outlook.com </a>`
     }, true)
+}
+
+function openMenu() {
+    Menu.open({
+        title: 'Menu',
+        content: `
+        
+        <a href="/#about">About</a>
+        <br><br>
+        <a href="/projects/">Projects</a>
+
+        <p>Contact</p>
+        <a style="font-size: 1.1rem; font-weight: 500;" href="https://www.linkedin.com/in/cohencoombs/" target="_blank"> www.linkedin.com/in/cohencoombs</a>
+        <br><br>
+        <a style="font-size: 1.1rem; font-weight: 500;" href="mailto:cohencoombs@outlook.com"> cohencoombs@outlook.com </a>
+
+        <br><br>
+        <p>Freelance Services</p>
+        <a href="/services/">See Freelance Services</a>
+        `
+    }, false)
 }
 
 nav.innerHTML = `
@@ -27,15 +45,14 @@ nav.innerHTML = `
     <li><a href="/#about">About</a></li>
     <li><a href="/projects/">Projects</a></li>
     <li onclick="contact()"><a href="#">Contact</a></li>
-
     <li>
         <a href="/services/">
             <button id="services-cta" style="margin: 0; font-size: 0.9rem; padding: 0rem 1rem !important; opacity: 0.5; background: var(--theme); border-radius: 100rem; font-weight: 600">See Freelance Services</button>
         </a>
     </li>
 </ul>
-<div class="mobile-menu">
-    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+<div onclick="openMenu()" class="mobile-menu">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
 </div>`
 
 
@@ -44,10 +61,17 @@ footer.innerHTML = `
     <div class="contact-methods">
         <div class="item">
             <span class="contact-method">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                 Email
             </span>
-            <a href="mailto:cohencoombs@outlook.com"> cohencoombs@outlook.com </a>
+            <a class="link" href="mailto:cohencoombs@outlook.com"> cohencoombs@outlook.com </a>
+        </div>
+        <div class="item">
+            <span class="contact-method">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                LinkedIn
+            </span>
+            <a class="link" target="_blank" href="https://www.linkedin.com/in/cohencoombs/"> www.linkedin.com/in/cohencoombs </a>
         </div>
     </div>
 
@@ -55,18 +79,17 @@ footer.innerHTML = `
 
     <h2>Links</h2>
     <div class="link-container">
-        <a target="_blank" href="../projects/">Projects</a>
-        <a target="_blank" href="../services/">Services</a>
+        <a class="link" target="_blank" href="../projects/">Projects</a>
+        <a class="link" target="_blank" href="../services/">Services</a>
     </div>
     <br>
     <p style="color: var(--subtext)"> © Cohen Coombs ${currentYear}. All Rights Reserved </p>
 `
 
 if (isHome()) for (i = 0; i < 5; i++)
-    document.getElementById("rating-section").innerHTML += `<svg xmlns="http://www.w3.org/2000/svg" style="margin-right: 0.3rem; width: 1.3rem; height: 1.3rem; color: #ffc800;" viewBox="0 0 24 24" fill="#ffc800" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>`
+    document.getElementById("rating-section").innerHTML += `<svg xmlns="http://www.w3.org/2000/svg" style="margin-right: 0.3rem; width: 1.3rem; height: 1.3rem; color: #ffc800;" viewBox="0 0 24 24" fill="#ffc800" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>`
 
 let variation = 0
-
 let inc = 0.04;
 let scl = 40;
 let cols, rows, flow;
@@ -74,9 +97,7 @@ let offset = 0;
 let particles = [];
 const banner = "canvas"
 
-function windowResized() {
-    resizeCanvas(windowWidth, windowHeight)
-};
+function windowResized() { resizeCanvas(windowWidth, windowHeight) }
 
 function setup() {
     particles = [];
@@ -186,59 +207,58 @@ function Particle() {
     };
 }
 
-setInterval(() => {
+
+async function softFadeOpacity(element, duration, targetOpacity) {
+    const start = performance.now();
+    const startOpacity = parseFloat(window.getComputedStyle(element).opacity);
+    const delta = targetOpacity - startOpacity;
+    return new Promise((resolve) => {
+        function step(timestamp) {
+            const progress = (timestamp - start) / duration;
+            element.style.opacity = startOpacity + delta * progress;
+            if (progress < 1) {
+                window.requestAnimationFrame(step);
+            } else {
+                resolve();
+            }
+        }
+        window.requestAnimationFrame(step);
+    });
+}
+
+setInterval(async () => {
     if (isHome()) {
         const banner = document.getElementById("canvas")
-        banner.style.opacity = "0";
-        banner.style.transition = "0.5s";
-        setTimeout(() => {
-            variation++
-            if (variation % 2 == 0) {
-                minRange = 225;
-                maxRange = 270;
-            }
-            else {
-                minRange = 5;
-                maxRange = 80;
-            }
-            setup();
-            banner.style.opacity = "1"
-        }, 500);
+        await softFadeOpacity(banner, 500, 0)
+        variation++
+        if (variation % 2 == 0) {
+            minRange = 225;
+            maxRange = 270;
+        } else {
+            minRange = 5;
+            maxRange = 80;
+        }
+        setup();
+        await softFadeOpacity(banner, 500, 1)
     }
-}, 9000);
+}, 6000);
 
 document.addEventListener("scroll", () => {
     const scroll = window.scrollY;
-    const card = document.querySelector('.card');
     const banner = document.querySelector(".banner");
 
     if (scroll > 10) {
-        nav.style.background = "var(--nav)"
-        nav.style.backdropFilter = "blur(1rem)"
-        nav.style.webkitBackdropFilter = "blur(1rem)"
+        nav.classList = "nav-active"
         document.querySelector("#services-cta").style.opacity = "1"
-        if (isHome()) card.style.opacity = "1"
     } else {
-        nav.style.background = "none"
-        nav.style.backdropFilter = "none"
-        nav.style.webkitBackdropFilter = "none"
+        nav.classList = "nav-inactive"
         document.querySelector("#services-cta").style.opacity = "0.5"
-        if (isHome()) card.style.opacity = "0"
     }
 
-    if (isHome()) {
-        if (scroll > 10) banner.style.borderRadius = `0 0 5rem 5rem`;
-        else banner.style.borderRadius = `0`
+    if (isHome() && window.innerWidth > 1000) {
         document.getElementById("canvas").style.scale = 1 + scroll / 2000;
-        banner.style.scale = 1 - scroll / 4000;
+        banner.style.transform = `rotate(${scroll / 100}deg) scale(${1 - scroll / 4000})`;
         banner.style.boxShadow = `inset 0px 0px ${scroll / 1.5 }px 0px rgba(255,255,255,0.02)`;
-    
-        card.style.transition = '0.1s';
-        if (window.scrollY >= 10) {
-            if (window.innerWidth <= 1024) {
-                card.style.transform = `translate(0%, -${window.scrollY-50/0.8}px)`
-            } else card.style.transform = `translate(-50%, -${window.scrollY-50/0.8}px)`
-        }
     }
 })
 

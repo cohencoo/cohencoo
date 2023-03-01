@@ -18,13 +18,20 @@
         <h1 class="project-title">Projects</h1>
     </div>
     <section>
-      <h1>Featured Projects</h1>
+      <h1 style="font-weight: 600;">Featured Projects</h1>
       <p style="margin: -0.5rem 0 2rem 0; border: 0" class="subtitle">Showing projects within 2021 - 2023</p>
       <div class="projects"></div>
     </section>
     <footer></footer>
     <script>
       var skills = [
+        {
+          name: "Employify",
+          icon: "employify",
+          url: "https://github.com/cohencoo/employify",
+          display_url: "github.com/cohencoo/employify",
+          description: "Employify provides a medium for emerging, talented & unique businesses to gain recognition and exposure to potential employees, or customers & users."
+        },
         {
           name: "PasteMac",
           url: "https://github.com/cohencoo/pastemac",
@@ -33,7 +40,7 @@
         },
         {
           name: "Flaredocs",
-          url: "https://flaredocs.coclub.repl.co",
+          url: "https://flaredocs.cohenco.co",
           display_url: "www.flaredocs.co",
           description: "Flaredocs, a free, fast and secure live-time word editor. Documents save automatically with many productive features to assist with writing."
         },
@@ -103,7 +110,7 @@
       skills.forEach(skill => {
           var item = document.createElement('div')
           item.className = 'project'
-          item.innerHTML = `<img src="../assets/icons/${skill.icon || skill.name.toLocaleLowerCase()}.png" alt="${skill.name}">
+          item.innerHTML = `<img style="filter: ${skill.icon === "employify" ? "invert(100%)" : "none" }" src="../assets/icons/${skill.icon || skill.name.toLocaleLowerCase()}.png" alt="${skill.name}">
                 <h2>${skill.name}</h2>
                 <a target="_blank" rel="noopener noreferrer" href="${skill.url}">${skill.display_url || "<span style='color: #888; font-size: 0.9rem; cursor: not-allowed'>[Discontinued]</span>"}</a>
                 <p>${skill.description} </p>`

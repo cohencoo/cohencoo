@@ -18,7 +18,7 @@ function contact() {
 
 const slideshow = {
     slide: 1,
-    maxSlides: 6,
+    maxSlides: 7,
     slideClock: null,
     nextSlide: () => {
         slideshow.slide++
@@ -26,7 +26,7 @@ const slideshow = {
         slideshow.setSlide()
     },
     setSlide: () => {
-        banner.style.backgroundImage = `url(banner/${slideshow.slide}.png)`
+        banner.style.backgroundImage = `url(banner/${slideshow.slide}.webp)`
         document.querySelectorAll(".index").forEach((child, index) => {
             child.classList.remove("index-active")
             if (index + 1 === slideshow.slide) child.classList.add("index-active")
