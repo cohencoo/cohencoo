@@ -257,7 +257,7 @@ document.addEventListener("scroll", () => {
 
     if (isHome() && window.innerWidth > 1000) {
         document.getElementById("canvas").style.scale = 1 + scroll / 2000;
-        banner.style.transform = `rotate(${scroll / 100}deg) scale(${1 - scroll / 4000})`;
+        banner.style.scale = 1 - scroll / 4000
         banner.style.boxShadow = `inset 0px 0px ${scroll / 1.5 }px 0px rgba(255,255,255,0.02)`;
     }
 })
