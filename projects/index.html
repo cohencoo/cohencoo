@@ -26,11 +26,11 @@
     <script>
       var skills = [
         {
-          name: "Employify",
-          icon: "employify",
-          url: "https://github.com/cohencoo/employify",
-          display_url: "github.com/cohencoo/employify",
-          description: "Employify provides a medium for emerging, talented & unique businesses to gain recognition and exposure to potential employees, or customers & users."
+          name: "VisioneerList",
+          icon: "visioneerlist",
+          url: "https://visioneerlist.com",
+          display_url: "visioneerlist.com",
+          description: "VisioneerList provides a medium for emerging, talented & unique businesses to gain recognition and exposure to potential employees, or customers & users."
         },
         {
           name: "PasteMac",
@@ -110,7 +110,7 @@
       skills.forEach(skill => {
           var item = document.createElement('div')
           item.className = 'project'
-          item.innerHTML = `<img style="filter: ${skill.icon === "employify" ? "invert(100%)" : "none" }" src="../assets/icons/${skill.icon || skill.name.toLocaleLowerCase()}.png" alt="${skill.name}">
+          item.innerHTML = `<img src="../assets/icons/${skill.icon || skill.name.toLocaleLowerCase()}.png" alt="${skill.name}">
                 <h2>${skill.name}</h2>
                 <a target="_blank" rel="noopener noreferrer" href="${skill.url}">${skill.display_url || "<span style='color: #888; font-size: 0.9rem; cursor: not-allowed'>[Discontinued]</span>"}</a>
                 <p>${skill.description} </p>`
