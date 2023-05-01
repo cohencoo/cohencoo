@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+
+    <style>
+        #bannerCanvas {
+            width: 100%;
+            height: 90vh;
+            background-color: #f2f2f2;
+        }
+    </style>
+    <body>
+        <canvas id="bannerCanvas"></canvas>
+
+        <script>
+            var images = [
+                "banner/1.webp",
+                "banner/2.webp",
+                "banner/3.webp",
+                "banner/4.webp",
+                "banner/5.webp",
+                "banner/6.webp",
+            ]
+
+            // Get the canvas element
+            var canvas = document.getElementById("bannerCanvas")
+            var ctx = canvas.getContext("2d")
+
+            // Define the number of images to display and their size
+            var numImages = 4
+            var imageSize = 200
+
+            // Array to store the image objects
+            var imageObjects = []
+
+            // Function to draw a single image on the canvas with opacity
+            function drawImageWithOpacity(imageObj, opacity, x, y) {
+                ctx.globalAlpha = opacity
+                ctx.drawImage(imageObj, x, y, imageSize, imageSize)
+                ctx.globalAlpha = 1 // Reset opacity
+            }
+
+            // Function to generate random coordinates within the canvas
+            function getRandomCoordinates() {
+                var x = Math.random() * (canvas.width - imageSize)
+                var y = Math.random() * (canvas.height - imageSize)
+                return { x: x, y: y }
+            }
+
+            // Function to load images and create image objects
+            function loadImages(images, callback) {
+                var loadedCount = 0
+
+                function loadImage(imageSrc) {
+                    var img = new Image()
+                    img.onload = function () {
+                        loadedCount++
+                        if (loadedCount === images.length) {
+                            callback()
+                        }
+                    }
+                    img.src = imageSrc
+                    return img
+                }
+
+                for (var i = 0; i < images.length; i++) {
+                    imageObjects.push(loadImage(images[i]))
+                }
+            }
+
+            // Function to display random images on the canvas with fade effect
+            function displayRandomImages() {
+                // Clear the canvas
+                ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+                // Loop through the number of images and display them with fade effect
+                for (var i = 0; i < numImages; i++) {
+                    var randomIndex = Math.floor(Math.random() * imageObjects.length)
+                    var randomImage = imageObjects[randomIndex]
+                    var coordinates = getRandomCoordinates()
+                    var opacity = 0
+
+                    function fadeIn() {
+                        opacity += 0.02
+                        if (opacity < 1) {
+                            drawImageWithOpacity(randomImage, opacity, coordinates.x, coordinates.y)
+                            requestAnimationFrame(fadeIn)
+                        } else {
+                            setTimeout(fadeOut, 2000)
+                        }
+                    }
+
+                    function fadeOut() {
+                        opacity -= 0.02
+                        if (opacity > 0) {
+                            drawImageWithOpacity(randomImage, opacity, coordinates.x, coordinates.y)
+                            requestAnimationFrame(fadeOut)
+                        } else {
+                            setTimeout(displayRandomImages, 2000)
+                        }
+                    }
+
+                    fadeIn()
+                }
+            }
+
+            // Call the function to load images and display random images
+            loadImages(images, function () {
+                // Set canvas dimensions to match its container
+                function setCanvasSize() {
+                    canvas.width = canvas.parentNode.clientWidth
+                    canvas.height = canvas.parentNode.clientHeight
+                }
+
+                setCanvasSize() // Set initial dimensions
+                window.addEventListener("resize", setCanvasSize) // Update dimensions on window resize
+
+                // Call the function to display initial random images
+                displayRandomImages()
+            })
+        </script>
+    </body>
+</html>

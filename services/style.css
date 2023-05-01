@@ -6,7 +6,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem 5rem
+    padding: 2rem 5rem;
 }
 
 .nav .brand {
@@ -61,7 +61,7 @@
     left: 50%;
     transform: translateX(-50%);
     position: relative;
-    padding: 4rem
+    padding: 4rem;
 }
 
 .banner {
@@ -171,7 +171,6 @@
     -webkit-text-fill-color: transparent;
 }
 
-
 .main-quote {
     text-align: center;
     font-weight: 600;
@@ -206,7 +205,6 @@
     background: #ffbf00;
     color: #282936;
 }
-
 
 @media screen and (max-width: 768px) {
     .nav {
@@ -257,14 +255,11 @@
 
     .about-card p,
     .about-card .material-symbols-rounded {
-        transform: none
+        transform: none;
     }
-
 }
 
-
 /* Quote Page */
-
 
 .page {
     position: absolute;

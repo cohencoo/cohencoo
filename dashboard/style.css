@@ -5,217 +5,217 @@
  * Proprietary and confidential
  * Written by Cohen Coombs, 2022
 ==================================================*/
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap");
 
 :root {
-  --background: #12141a;
-  --component: #12141a;
-  --text: #ffffff;
-  --subtext: #ccc;
-  --link: #3355ff;
-  --theme: #3150ff;
-  --slider: #bbbbbb;
-  --shade-1: #111111;
-  --shade-2: #222222;
-  --shade-3: #333333;
-  --theme-red: rgb(220, 30, 50);
-  --theme-green: rgb(60, 200, 80);
-  --theme-orange: rgb(255, 200, 30);
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --background: #ffffff;
-    --component: #eeeeee;
-    --text: #000000;
-    --subtext: #222222;
+    --background: #12141a;
+    --component: #12141a;
+    --text: #ffffff;
+    --subtext: #ccc;
     --link: #3355ff;
     --theme: #3150ff;
     --slider: #bbbbbb;
-    --shade-1: #ffffff;
-    --shade-2: #eeeeee;
-    --shade-3: #dddddd;
+    --shade-1: #111111;
+    --shade-2: #222222;
+    --shade-3: #333333;
     --theme-red: rgb(220, 30, 50);
     --theme-green: rgb(60, 200, 80);
     --theme-orange: rgb(255, 200, 30);
-  }
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --background: #ffffff;
+        --component: #eeeeee;
+        --text: #000000;
+        --subtext: #222222;
+        --link: #3355ff;
+        --theme: #3150ff;
+        --slider: #bbbbbb;
+        --shade-1: #ffffff;
+        --shade-2: #eeeeee;
+        --shade-3: #dddddd;
+        --theme-red: rgb(220, 30, 50);
+        --theme-green: rgb(60, 200, 80);
+        --theme-orange: rgb(255, 200, 30);
+    }
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 ::selection {
-  background-color: rgba(100, 150, 255, 0.3);
-  color: var(--text);
+    background-color: rgba(100, 150, 255, 0.3);
+    color: var(--text);
 }
 
 ::-webkit-scrollbar {
-  width: 0px;
-  background: transparent;
+    width: 0px;
+    background: transparent;
 }
 
 body {
-  background: var(--background);
-  color: var(--text);
-  padding: 0;
-  margin: 0;
-  font-family: 'Montserrat', sans-serif;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  height: 120vh;
+    background: var(--background);
+    color: var(--text);
+    padding: 0;
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    height: 120vh;
 }
 
 .app-container {
-  width: 100%;
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, 0);
-  padding: 0 9vw 0 9vw;
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    padding: 0 9vw 0 9vw;
 }
 
 .banner {
-  position: fixed;
-  top: 60px;
-  left: 50%;
-  transform: translate(-50%, 0);
-  width: 85vw;
-  height: 60vh;
-  border-radius: 2rem;
-  background: linear-gradient(90deg, rgba(49, 80, 255, 1) 0%, rgb(116, 37, 165) 100%);
-  background-image: url("assets/banner.svg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-size: 150%;
-  box-shadow: #240BB8 1px 1px 100rem;
-  animation: banner 2s;
-  animation-iteration-count: 1;
-  background-position: 50% 90%;
-  filter: hue-rotate(0deg) saturate(100%);
+    position: fixed;
+    top: 60px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 85vw;
+    height: 60vh;
+    border-radius: 2rem;
+    background: linear-gradient(90deg, rgba(49, 80, 255, 1) 0%, rgb(116, 37, 165) 100%);
+    background-image: url("assets/banner.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 150%;
+    box-shadow: #240bb8 1px 1px 100rem;
+    animation: banner 2s;
+    animation-iteration-count: 1;
+    background-position: 50% 90%;
+    filter: hue-rotate(0deg) saturate(100%);
 }
 
 @keyframes banner {
-  0% {
-    background-position: 50% 65%;
-    filter: hue-rotate(15deg) saturate(150%);
-  }
+    0% {
+        background-position: 50% 65%;
+        filter: hue-rotate(15deg) saturate(150%);
+    }
 
-  100% {
-    background-position: 50% 90%;
-    filter: hue-rotate(0deg) saturate(100%);
-  }
+    100% {
+        background-position: 50% 90%;
+        filter: hue-rotate(0deg) saturate(100%);
+    }
 }
 
 .banner .container {
-  position: relative;
-  width: 100%;
-  padding: 1rem 10rem;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+    position: relative;
+    width: 100%;
+    padding: 1rem 10rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 input {
-  width: 50vw;
-  border-radius: 100rem;
-  border: none;
-  padding: 0.8rem 2rem;
-  font-size: 1rem;
-  outline: none;
-  font-family: inherit;
+    width: 50vw;
+    border-radius: 100rem;
+    border: none;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    outline: none;
+    font-family: inherit;
 }
 
 @media screen and (max-width: 768px) {
-  .app-container {
-    padding: 1rem;
-    margin-top: 2rem;
-    width: 100% !important;
-  }
+    .app-container {
+        padding: 1rem;
+        margin-top: 2rem;
+        width: 100% !important;
+    }
 
-  .logo {
-    top: 0 !important;
-    left: 0 !important;
-    padding: 0.8rem;
-    background: var(--component);
-    width: 100%;
-  }
+    .logo {
+        top: 0 !important;
+        left: 0 !important;
+        padding: 0.8rem;
+        background: var(--component);
+        width: 100%;
+    }
 
-  .statistics {
-    display: none;
-  }
+    .statistics {
+        display: none;
+    }
 }
 
 .statistics {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 2rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  padding-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding-bottom: 2rem;
 }
 
 .dashboard {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 1rem;
-  text-transform: uppercase;
-  padding: 1rem 1rem;
-  background: rgba(90, 90, 90, 0.1);
-  backdrop-filter: blur(10px);
-  border-radius: 1rem;
-  margin-top: 77vh;
-  margin-bottom: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1rem;
+    text-transform: uppercase;
+    padding: 1rem 1rem;
+    background: rgba(90, 90, 90, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 1rem;
+    margin-top: 77vh;
+    margin-bottom: 2rem;
 }
 
 .dashboard .item {
-  padding: 1rem;
-  color: var(--text);
-  overflow: hidden;
-  min-height: 7rem;
-  border-radius: 6px;
-  transition: 0.15s;
+    padding: 1rem;
+    color: var(--text);
+    overflow: hidden;
+    min-height: 7rem;
+    border-radius: 6px;
+    transition: 0.15s;
 }
 
 .dashboard .item:hover {
-  background: rgba(90, 90, 90, 0.15);
-  border-radius: 10px;
+    background: rgba(90, 90, 90, 0.15);
+    border-radius: 10px;
 }
 
 .dashboard .item h2 {
-  margin-top: 0;
-  color: var(--subtext);
-  font-size: 1rem;
-  font-weight: 400;
+    margin-top: 0;
+    color: var(--subtext);
+    font-size: 1rem;
+    font-weight: 400;
 }
 
 data {
-  letter-spacing: 0.1rem;
-  font-size: 1.8rem;
-  font-weight: 500;
+    letter-spacing: 0.1rem;
+    font-size: 1.8rem;
+    font-weight: 500;
 }
 
 #current-time {
-  margin-top: -2rem;
-  font-weight: 600;
-  color: white;
-  font-size: 4rem;
-  letter-spacing: 0.4rem;
+    margin-top: -2rem;
+    font-weight: 600;
+    color: white;
+    font-size: 4rem;
+    letter-spacing: 0.4rem;
 }
 
 .status-container {
-  background-color: rgba(100, 150, 255, 0.1);
-  border-radius: 1rem;
-  height: 5px;
-  width: 100%;
+    background-color: rgba(100, 150, 255, 0.1);
+    border-radius: 1rem;
+    height: 5px;
+    width: 100%;
 }
 
 .status-bar {
-  margin-top: 0.5rem;
-  background-color: rgb(0, 68, 255);
-  box-shadow: 1px 1px 1rem rgb(0, 43, 160);
-  width: 0;
-  height: 5px;
-  border-radius: 100rem;
+    margin-top: 0.5rem;
+    background-color: rgb(0, 68, 255);
+    box-shadow: 1px 1px 1rem rgb(0, 43, 160);
+    width: 0;
+    height: 5px;
+    border-radius: 100rem;
 }
