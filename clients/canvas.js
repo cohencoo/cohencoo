@@ -8,11 +8,18 @@ const images = [
     "banner/4.webp",
     "banner/5.webp",
     "banner/6.webp",
+    "banner/7.webp",
+    "banner/8.webp",
     "banner/1.png",
     "banner/2.png",
     "banner/3.png",
     "banner/4.png",
     "banner/5.png",
+    "banner/6.png",
+    "banner/7.png",
+    "banner/8.png",
+    "banner/9.png",
+    "banner/10.png",
 ]
 
 const imageObjects = []
@@ -32,7 +39,7 @@ function randomBetween(min, max) {
 }
 
 function drawImage(imgObj) {
-    const size = randomBetween(100, 300)
+    const size = randomBetween(150, 300)
     const x = randomBetween(0, canvas.width - size)
     const y = randomBetween(0, canvas.height - size)
     const opacity = randomBetween(7, 9) / 10
@@ -46,7 +53,7 @@ function drawImage(imgObj) {
         targetOpacity: opacity,
         fade: "in",
         fadeInSpeed: 0.05,
-        fadeOutSpeed: 0.003,
+        fadeOutSpeed: 0.004,
     })
 }
 
@@ -82,6 +89,16 @@ function startBanner() {
     updateCanvasSize()
     draw()
 
+    const burst = setInterval(() => {
+        if (
+            displayedImages.length < maxDisplayedImages &&
+            displayedImages.filter((img) => img.fade === "in").length < maxSimultaneousImages
+        ) {
+            drawImage(imageObjects[randomBetween(0, imageObjects.length - 1)])
+        }
+    }, 100)
+    setTimeout(() => clearInterval(burst), 1000)
+
     setInterval(() => {
         if (
             displayedImages.length < maxDisplayedImages &&
@@ -89,7 +106,7 @@ function startBanner() {
         ) {
             drawImage(imageObjects[randomBetween(0, imageObjects.length - 1)])
         }
-    }, 400)
+    }, 300)
 }
 
 window.addEventListener("resize", updateCanvasSize)

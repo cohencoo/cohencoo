@@ -3,7 +3,7 @@ const progressContainer = document.querySelector(".progress-container")
 
 const slideshow = {
     slide: 1,
-    maxSlides: 5,
+    maxSlides: 8,
     slideClock: null,
     nextSlide: () => {
         slideshow.slide++
