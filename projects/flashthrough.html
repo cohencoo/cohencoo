@@ -6,53 +6,82 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
     </head>
-
     <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
         #bannerCanvas {
             width: 100%;
-            height: 90vh;
-            background-color: #f2f2f2;
+            height: 100vh;
+            background-color: #999;
         }
     </style>
     <body>
         <canvas id="bannerCanvas"></canvas>
-
         <script>
             var images = [
-                "banner/1.webp",
-                "banner/2.webp",
-                "banner/3.webp",
-                "banner/4.webp",
-                "banner/5.webp",
-                "banner/6.webp",
+                "https://picsum.photos/256/256?nocache=1",
+                "https://picsum.photos/256/256?nocache=2",
+                "https://picsum.photos/256/256?nocache=3",
+                "https://picsum.photos/256/256?nocache=4",
+                "https://picsum.photos/256/256?nocache=5",
+                "https://picsum.photos/256/256?nocache=6",
+                "https://picsum.photos/256/256?nocache=7",
+                "https://picsum.photos/256/256?nocache=8",
+                "https://picsum.photos/256/256?nocache=9",
+                "https://picsum.photos/256/256?nocache=10",
+                "https://picsum.photos/256/256?nocache=11",
+                "https://picsum.photos/256/256?nocache=12",
+                "https://picsum.photos/256/256?nocache=13",
+                "https://picsum.photos/256/256?nocache=14",
+                "https://picsum.photos/256/256?nocache=15",
+                "https://picsum.photos/256/256?nocache=16",
+                "https://picsum.photos/256/256?nocache=17",
+                "https://picsum.photos/256/256?nocache=18",
+                "https://picsum.photos/256/256?nocache=19",
+                "https://picsum.photos/256/256?nocache=20",
+                "https://picsum.photos/256/256?nocache=21",
+                "https://picsum.photos/256/256?nocache=22",
+                "https://picsum.photos/256/256?nocache=23",
+                "https://picsum.photos/256/256?nocache=24",
+                "https://picsum.photos/256/256?nocache=25",
+                "https://picsum.photos/256/256?nocache=26",
+                "https://picsum.photos/256/256?nocache=27",
+                "https://picsum.photos/256/256?nocache=28",
+                "https://picsum.photos/256/256?nocache=29",
+                "https://picsum.photos/256/256?nocache=30",
+                "https://picsum.photos/256/256?nocache=31",
+                "https://picsum.photos/256/256?nocache=32",
+                "https://picsum.photos/256/256?nocache=33",
+                "https://picsum.photos/256/256?nocache=34",
+                "https://picsum.photos/256/256?nocache=35",
+                "https://picsum.photos/256/256?nocache=36",
+                "https://picsum.photos/256/256?nocache=37",
+                "https://picsum.photos/256/256?nocache=38",
+                "https://picsum.photos/256/256?nocache=39",
+                "https://picsum.photos/256/256?nocache=40",
             ]
 
-            // Get the canvas element
             var canvas = document.getElementById("bannerCanvas")
             var ctx = canvas.getContext("2d")
-
-            // Define the number of images to display and their size
             var numImages = 4
             var imageSize = 200
-
-            // Array to store the image objects
             var imageObjects = []
 
-            // Function to draw a single image on the canvas with opacity
             function drawImageWithOpacity(imageObj, opacity, x, y) {
                 ctx.globalAlpha = opacity
+
                 ctx.drawImage(imageObj, x, y, imageSize, imageSize)
-                ctx.globalAlpha = 1 // Reset opacity
+                ctx.globalAlpha = 1
             }
 
-            // Function to generate random coordinates within the canvas
             function getRandomCoordinates() {
                 var x = Math.random() * (canvas.width - imageSize)
                 var y = Math.random() * (canvas.height - imageSize)
                 return { x: x, y: y }
             }
 
-            // Function to load images and create image objects
             function loadImages(images, callback) {
                 var loadedCount = 0
 
@@ -73,12 +102,9 @@
                 }
             }
 
-            // Function to display random images on the canvas with fade effect
             function displayRandomImages() {
-                // Clear the canvas
                 ctx.clearRect(0, 0, canvas.width, canvas.height)
 
-                // Loop through the number of images and display them with fade effect
                 for (var i = 0; i < numImages; i++) {
                     var randomIndex = Math.floor(Math.random() * imageObjects.length)
                     var randomImage = imageObjects[randomIndex]
@@ -108,19 +134,13 @@
                     fadeIn()
                 }
             }
-
-            // Call the function to load images and display random images
             loadImages(images, function () {
-                // Set canvas dimensions to match its container
                 function setCanvasSize() {
                     canvas.width = canvas.parentNode.clientWidth
                     canvas.height = canvas.parentNode.clientHeight
                 }
-
-                setCanvasSize() // Set initial dimensions
-                window.addEventListener("resize", setCanvasSize) // Update dimensions on window resize
-
-                // Call the function to display initial random images
+                setCanvasSize()
+                window.addEventListener("resize", setCanvasSize)
                 displayRandomImages()
             })
         </script>

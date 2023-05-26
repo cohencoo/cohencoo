@@ -1,122 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Cohen Coombs">
-    <meta name="description" content="Dedicated web graphic/illustration, designer and developer with over 5 years in experience.">
-    <meta name="keywords" content="Cohen, Coombs, Cohen Coombs, CohenCoombs, cohencoombs, cohen, coombs, cohen coombs, website, developer, freelance, website freelancer, looking for website, website design, create website, designer, graphic, design, make website, pages, page, webpage">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Cohen - My Projects</title>
-    <link rel="stylesheet" href="../assets/style.css">
-    <link rel="shortcut icon" href="../assets/icons/logo.png" type="image/x-icon">
-  </head>
-  <body>
-    <script>0</script>
-    <nav></nav>
-    <div class="project-banner">
-        <h1 class="project-title">Projects</h1>
-    </div>
-    <section>
-      <h1 style="font-weight: 600;">Featured Projects</h1>
-      <p style="margin: -0.5rem 0 2rem 0; border: 0" class="subtitle">Showing projects within 2021 - 2023</p>
-      <div class="projects"></div>
-    </section>
-    <footer></footer>
-    <script>
-      var skills = [
-        {
-          name: "VisioneerList",
-          icon: "visioneerlist",
-          url: "https://visioneerlist.com",
-          display_url: "visioneerlist.com",
-          description: "VisioneerList provides a medium for emerging, talented & unique businesses to gain recognition and exposure to potential employees, or customers & users."
-        },
-        {
-          name: "PasteMac",
-          url: "https://github.com/cohencoo/pastemac",
-          display_url: "github.com/cohencoo/pastemac",
-          description: "PasteMac is a MacOS app & keyboard utility for pasting text to the clipboard. Text you've previously copied will populate your clipboard on Pastemac. Clicking any copied item inside your clipboard will automatically copy it to your OSX."
-        },
-        {
-          name: "Flaredocs",
-          url: "https://flaredocs.cohenco.co",
-          display_url: "www.flaredocs.co",
-          description: "Flaredocs, a free, fast and secure live-time word editor. Documents save automatically with many productive features to assist with writing."
-        },
-        {
-          name: "Clustoro",
-          url: "",
-          display_url: "",
-          description: "Clustoro is a message & media based social media platform. Users can freely communicate with others, access useful settings, moderation & utility and create versatile workspaces."
-        },
-        {
-          name: "Auflare Intelligence",
-          icon: "auflare",
-          url: "https://auflare.coclub.repl.co",
-          display_url: "www.auflare.co",
-          description: "Auflare Intelligence is an Artificial Intelligence capable of understanding human intent, in order to provide concise information sourced from the internet."
-        },
-        {
-          name: "Auflare Type",
-          icon: "type",
-          url: "https://cohenco.co/type",
-          display_url: "cohenco.co/type",
-          description: "Auflare Type is aimed at improving typing speed and accuracy, by providing a new way to type and improve your typing skills."
-        },
-        {
-          name: "Physiognomy",
-          icon: "ai",
-          url: "https://cohenco.co/face",
-          display_url: "cohenco.co/face",
-          description: "Physiognomy is the practice of analyzing a person's facial features or expressions. This project uses Artificial Intelligence to recognize a person's facial features and expressions."
-        },
-        {
-          name: "3.1415...",
-          icon: "pi",
-          url: "pi.html",
-          display_url: "cohenco.co/pi",
-          description: "This simple game involves recalling digits from Pi. It was built in order to improve the accuracy of storing and recalling information."
-        },
-        {
-          name: "Music Visualizer",
-          icon: "visualizer",
-          url: "visualizer/",
-          display_url: "cohenco.co/visualizer",
-          description: "A music visualizer which analyzes the change of frequency throughout a song, creating a visual representation on a 3D sphere."
-        },
-        {
-          name: "Defency",
-          icon: "defency",
-          url: "",
-          display_url: "",
-          description: "Defency is a web-based app which specifically connects South Australian lawyers in one place."
-        },
-        {
-          name: "Teleprompter",
-          icon: "reader",
-          url: "reader/",
-          display_url: "cohenco.co/reader",
-          description: "A modern, lightweight and minimalist Teleprompter. Sound like a professional by reading at an attractive speed."
-        },
-        {
-          name: "InquiriesAi",
-          icon: "inquiries",
-          url: "",
-          display_url: "",
-          description: "InquiriesAi is a sublime integration which helps with customer management. InquiriesAi uses Artificial Intelligence to engage with a customer and recommend the best service available."
-        },
-      ]
-      skills.forEach(skill => {
-          var item = document.createElement('div')
-          item.className = 'project'
-          item.innerHTML = `<img src="../assets/icons/${skill.icon || skill.name.toLocaleLowerCase()}.png" alt="${skill.name}">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="Cohen Coombs" />
+        <meta
+            name="description"
+            content="Dedicated web graphic/illustration, designer and developer with over 6 years in experience."
+        />
+        <meta
+            name="keywords"
+            content="Cohen, Coombs, Cohen Coombs, CohenCoombs, cohencoombs, cohen, coombs, cohen coombs, website, developer, freelance, website freelancer, looking for website, website design, create website, designer, graphic, design, make website, pages, page, webpage"
+        />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Cohen - My Projects</title>
+        <link rel="stylesheet" href="../assets/style.css" />
+        <link rel="shortcut icon" href="../assets/icons/logo.png" type="image/x-icon" />
+    </head>
+    <body>
+        <script>
+            0
+        </script>
+        <nav></nav>
+        <div class="project-banner">
+            <h1 class="project-title">Projects</h1>
+        </div>
+        <section>
+            <h1 style="font-weight: 600;">Featured Projects</h1>
+            <p style="margin: -0.5rem 0 2rem 0; border: 0;" class="subtitle">
+                Showing projects within 2021 - 2023
+            </p>
+            <div class="projects"></div>
+        </section>
+        <footer></footer>
+        <script>
+            var skills = [
+                {
+                    name: "VisioneerList",
+                    icon: "visioneerlist",
+                    url: "https://visioneerlist.com",
+                    display_url: "visioneerlist.com",
+                    description:
+                        "VisioneerList provides a medium for emerging, talented & unique businesses to gain recognition and exposure to potential employees, or customers & users.",
+                },
+                {
+                    name: "PasteMac",
+                    url: "https://github.com/cohencoo/pastemac",
+                    display_url: "github.com/cohencoo/pastemac",
+                    description:
+                        "PasteMac is a MacOS app & keyboard utility for pasting text to the clipboard. Text you've previously copied will populate your clipboard on Pastemac. Clicking any copied item inside your clipboard will automatically copy it to your OSX.",
+                },
+                {
+                    name: "Flaredocs",
+                    url: "https://flaredocs.coclub.repl.co",
+                    display_url: "www.flaredocs.co",
+                    description:
+                        "Flaredocs, a free, fast and secure live-time word editor. Documents save automatically with many productive features to assist with writing.",
+                },
+                {
+                    name: "Clustoro",
+                    url: "",
+                    display_url: "",
+                    description:
+                        "Clustoro is a message & media based social media platform. Users can freely communicate with others, access useful settings, moderation & utility and create versatile workspaces.",
+                },
+                {
+                    name: "Auflare Intelligence",
+                    icon: "auflare",
+                    url: "https://auflare.coclub.repl.co",
+                    display_url: "www.auflare.co",
+                    description:
+                        "Auflare Intelligence is an Artificial Intelligence capable of understanding human intent, in order to provide concise information sourced from the internet.",
+                },
+                {
+                    name: "Auflare Type",
+                    icon: "type",
+                    url: "https://cohenco.co/type",
+                    display_url: "cohenco.co/type",
+                    description:
+                        "Auflare Type is aimed at improving typing speed and accuracy, by providing a new way to type and improve your typing skills.",
+                },
+                {
+                    name: "Physiognomy",
+                    icon: "ai",
+                    url: "https://cohenco.co/face",
+                    display_url: "cohenco.co/face",
+                    description:
+                        "Physiognomy is the practice of analyzing a person's facial features or expressions. This project uses Artificial Intelligence to recognize a person's facial features and expressions.",
+                },
+                {
+                    name: "3.1415...",
+                    icon: "pi",
+                    url: "pi.html",
+                    display_url: "cohenco.co/pi",
+                    description:
+                        "This simple game involves recalling digits from Pi. It was built in order to improve the accuracy of storing and recalling information.",
+                },
+                {
+                    name: "Music Visualizer",
+                    icon: "visualizer",
+                    url: "visualizer/",
+                    display_url: "cohenco.co/visualizer",
+                    description:
+                        "A music visualizer which analyzes the change of frequency throughout a song, creating a visual representation on a 3D sphere.",
+                },
+                {
+                    name: "Defency",
+                    icon: "defency",
+                    url: "",
+                    display_url: "",
+                    description:
+                        "Defency is a web-based app which specifically connects South Australian lawyers in one place.",
+                },
+                {
+                    name: "Teleprompter",
+                    icon: "reader",
+                    url: "reader/",
+                    display_url: "cohenco.co/reader",
+                    description:
+                        "A modern, lightweight and minimalist Teleprompter. Sound like a professional by reading at an attractive speed.",
+                },
+                {
+                    name: "InquiriesAi",
+                    icon: "inquiries",
+                    url: "",
+                    display_url: "",
+                    description:
+                        "InquiriesAi is a sublime integration which helps with customer management. InquiriesAi uses Artificial Intelligence to engage with a customer and recommend the best service available.",
+                },
+            ]
+            skills.forEach((skill) => {
+                var item = document.createElement("div")
+                item.className = "project"
+                item.innerHTML = `<img src="../assets/icons/${
+                    skill.icon || skill.name.toLocaleLowerCase()
+                }.png" alt="${skill.name}">
                 <h2>${skill.name}</h2>
-                <a target="_blank" rel="noopener noreferrer" href="${skill.url}">${skill.display_url || "<span style='color: #888; font-size: 0.9rem; cursor: not-allowed'>[Discontinued]</span>"}</a>
+                <a target="_blank" rel="noopener noreferrer" href="${skill.url}">${
+                    skill.display_url ||
+                    "<span style='color: #888; font-size: 0.9rem; cursor: not-allowed'>[Discontinued]</span>"
+                }</a>
                 <p>${skill.description} </p>`
-          document.getElementsByClassName('projects')[0].appendChild(item)
-      })
-    </script>
-    <script src="/assets/main.js"></script>
-  </body>
+                document.getElementsByClassName("projects")[0].appendChild(item)
+            })
+        </script>
+        <script src="/assets/main.js"></script>
+    </body>
 </html>
