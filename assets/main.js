@@ -1,100 +1,165 @@
 const nav = document.querySelector("nav")
 const footer = document.querySelector("footer")
-const carousel = document.querySelector(".carousel")
 const currentYear = new Date().getFullYear()
 const isHome = () => window.location.pathname == "/" || window.location.pathname == "/index.html"
 
-function contact() {
-    Menu.open(
-        {
-            title: "Contact me via:",
-            content: `
-        <br>
-        <svg xmlns="http://www.w3.org/2000/svg" style="margin-right: 1rem; width: 1.2rem; height: 1.2rem; vertical-align: middle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-        <a style="font-size: 1.1rem; font-weight: 500;" href="https://www.linkedin.com/in/cohencoombs/" target="_blank"> www.linkedin.com/in/cohencoombs</a>
-        <br><br>
-        <svg xmlns="http://www.w3.org/2000/svg" style="margin-right: 1rem; width: 1.2rem; height: 1.2rem; vertical-align: middle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"></path></svg>
-        <a style="font-size: 1.1rem; font-weight: 500;" href="mailto:cohencoombs@outlook.com"> cohencoombs@outlook.com </a>`,
-        },
-        true
-    )
+let menuOpen = false
+function updateMenuButton() {
+    document.querySelector(".mobile-menu").onclick = menuOpen ? closeMenu : navMenu
+    document.querySelector(".mobile-menu").innerHTML = menuOpen
+        ? `<svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="30"
+                  height="30"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+              >
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>`
+        : `<svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="30"
+                  height="30"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+              >
+                  <line x1="3" y1="12" x2="21" y2="12"></line>
+                  <line x1="3" y1="6" x2="21" y2="6"></line>
+                  <line x1="3" y1="18" x2="21" y2="18"></line>
+              </svg>`
 }
 
-function openMenu() {
-    Menu.open(
-        {
-            title: "Menu",
-            content: `
-        
-        <a href="/#about">About</a>
-        <br><br>
-        <a href="/projects/">Projects</a>
-
-        <p>Contact</p>
-        <a style="font-size: 1.1rem; font-weight: 500;" href="https://www.linkedin.com/in/cohencoombs/" target="_blank"> www.linkedin.com/in/cohencoombs</a>
-        <br><br>
-        <a style="font-size: 1.1rem; font-weight: 500;" href="mailto:cohencoombs@outlook.com"> cohencoombs@outlook.com </a>
-
-        <br><br>
-        <p>Web Design Services</p>
-        <a href="https://bespokewebdev.com">See Services</a>
-        `,
-        },
-        false
-    )
+function navMenu() {
+    menuOpen = true
+    document.querySelector(".overlay").style.display = "flex"
+    setTimeout(() => (document.querySelector(".overlay").style.transform = "translateY(40%)"), 20)
+    updateMenuButton()
+}
+function closeMenu() {
+    menuOpen = false
+    document.querySelector(".overlay").style.transform = "translateY(100%)"
+    setTimeout(() => (document.querySelector(".overlay").style.display = "none"), 500)
+    updateMenuButton()
 }
 
-nav.innerHTML = `
-<a href="/"><img src="assets/icons/logo.png" alt="logo"></a>
-<ul>
-    <li><a href="/#about">About</a></li>
-    <li><a href="/projects/">Projects</a></li>
-    <li onclick="contact()"><a href="#">Contact</a></li>
-    <li>
-        <a href="https://bespokewebdev.com">
-            <button id="services-cta" style="margin: 0; font-size: 0.9rem; padding: 0rem 1rem !important; opacity: 0.5; background: var(--theme); border-radius: 100rem; font-weight: 600">Web Design Services</button>
-        </a>
-    </li>
-</ul>
-<div onclick="openMenu()" class="mobile-menu">
-    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-</div>`
+nav.innerHTML = `<a href="/"><img src="assets/icons/logo.png" alt="logo" /></a>
+    <ul>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/projects/">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li>
+            <a target="_blank" href="https://bespokewebdev.com">
+                <button
+                    id="services-cta"
+                    style="margin: 0; font-size: 0.9rem; padding: 0rem 1rem !important; opacity: 0.5; background: var(--theme); border-radius: 100rem; font-weight: 600"
+                >
+                    Web Design Services
+                </button>
+            </a>
+        </li>
+    </ul>
+    <div onclick="navMenu()" class="mobile-menu">
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+        >
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+    </div>`
 
 footer.innerHTML = `
-    <h2>Contact</h2>
+    <h2 id="contact">Contact</h2>
     <div class="contact-methods">
         <div class="item">
             <span class="contact-method">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+                    <path
+                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                    ></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
                 Email
             </span>
             <a class="link" href="mailto:cohencoombs@outlook.com"> cohencoombs@outlook.com </a>
         </div>
         <div class="item">
             <span class="contact-method">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+                    <path
+                        d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                    ></path>
+                    <rect x="2" y="9" width="4" height="12"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                </svg>
                 LinkedIn
             </span>
-            <a class="link" target="_blank" href="https://www.linkedin.com/in/cohencoombs/"> www.linkedin.com/in/cohencoombs </a>
+            <a class="link" target="_blank" href="https://www.linkedin.com/in/cohencoombs/">
+                www.linkedin.com/in/cohencoombs
+            </a>
         </div>
     </div>
 
-    <hr>
+    <hr />
 
     <h2>Links</h2>
     <div class="link-container">
         <a class="link" target="_blank" href="../projects/">Projects</a>
         <a class="link" target="_blank" href="https://bespokewebdev.com">Web Design Services</a>
     </div>
-    <br>
-    <p style="color: var(--subtext)"> © Cohen Coombs ${currentYear}. All Rights Reserved </p>
+    <br />
+    <p style="color: var(--subtext)">© Cohen Coombs ${currentYear}. All Rights Reserved</p>
 `
 
-if (isHome())
-    for (i = 0; i < 5; i++)
-        document.getElementById(
-            "rating-section"
-        ).innerHTML += `<svg xmlns="http://www.w3.org/2000/svg" style="margin-right: 0.3rem; width: 1.3rem; height: 1.3rem; color: #ffc800;" viewBox="0 0 24 24" fill="#ffc800" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>`
+document.body.innerHTML += `<div class="overlay">
+    <p style="text-align: center; margin-bottom: 3rem; color: black; font-size: 1.2rem; font-weight: 500; ">Navigate To</p>
+    <a onclick="closeMenu()" href="/">Home</a>
+    <a onclick="closeMenu()" href="/#about">About Me</a>
+    <a onclick="closeMenu()" href="/projects/">Projects</a>
+    <a onclick="closeMenu()" href="#contact">Contact</a>
+    <a onclick="closeMenu()" target="_blank" href="https://bespokewebdev.com">Web Design Services</a>
+</div>`
+
+if (isHome()) {
+    document.getElementById(
+        "rating-section"
+    ).innerHTML += `<svg xmlns="http://www.w3.org/2000/svg" style="margin-right: 0.3rem; width: 1.3rem; height: 1.3rem; color: #ffc800;" viewBox="0 0 24 24" fill="#ffc800" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>`.repeat(
+        5
+    )
+}
 
 let variation = 0
 let inc = 0.04
@@ -103,10 +168,6 @@ let cols, rows, flow
 let offset = 0
 let particles = []
 const banner = "canvas"
-
-function windowResized() {
-    resizeCanvas(windowWidth, windowHeight)
-}
 
 function setup() {
     particles = []
@@ -255,10 +316,10 @@ document.addEventListener("scroll", () => {
     const scroll = window.scrollY
 
     if (scroll > 10) {
-        nav.classList = "nav-active"
+        document.querySelector("nav").classList.add("nav-active")
         document.querySelector("#services-cta").style.opacity = "1"
     } else {
-        nav.classList = "nav-inactive"
+        document.querySelector("nav").classList.remove("nav-active")
         document.querySelector("#services-cta").style.opacity = "0.5"
     }
 })
@@ -266,66 +327,74 @@ document.addEventListener("scroll", () => {
 let items = [
     {
         name: "HTML",
-        icon: "html.png",
+        icon: "assets/icons/html.png",
     },
     {
         name: "CSS",
-        icon: "css.png",
+        icon: "assets/icons/css.png",
     },
     {
         name: "JavaScript",
-        icon: "js.png",
+        icon: "assets/icons/js.png",
     },
     {
         name: "React",
-        icon: "react.png",
+        icon: "assets/icons/react.png",
     },
     {
         name: "Typescript",
-        icon: "typescript.png",
+        icon: "assets/icons/typescript.png",
     },
     {
         name: "NodeJS",
-        icon: "node.png",
+        icon: "assets/icons/node.png",
     },
     {
         name: "Python",
-        icon: "python.png",
+        icon: "assets/icons/python.png",
     },
     {
         name: "Socket.io",
-        icon: "socket.svg",
+        icon: "assets/icons/socket.svg",
     },
     {
         name: "MongoDB",
-        icon: "mongo.png",
+        icon: "assets/icons/mongo.png",
+    },
+    {
+        name: "Electron",
+        icon: "assets/icons/electron.png",
+    },
+    {
+        name: "Git",
+        icon: "assets/icons/git.png",
+    },
+    {
+        name: "SCSS",
+        icon: "assets/icons/scss.png",
     },
 ]
 
-function nextRender() {
-    const group = document.createElement("div")
-    group.className = "group"
-
+isHome() &&
     items.forEach((item) => {
-        const card = document.createElement("div")
-        card.innerHTML = `
-            <div class="item">
-                <img src="assets/icons/${item.icon}" draggable="false" alt="${item.name}" />
-                <span>${item.name}</span>
-            </div>`
-        group.appendChild(card)
+        const div = document.createElement("div")
+        div.classList.add("swiper-slide")
+        div.innerHTML = `
+        <img style="width: 8rem; height: 8rem" src="${item.icon}" draggable="false" alt="${item.name}" />
+        <p>${item.name}</p>
+    `
+        document.querySelector(".swiper-wrapper").appendChild(div)
     })
 
-    carousel.appendChild(group)
-}
-
-if (isHome()) for (let i = 0; i < 6; i++) nextRender()
-
-setInterval(() => {
-    if (isHome()) {
-        nextRender()
-        if (carousel.children && carousel.children.length > 10) {
-            for (let i = 0; i < 4; i++) carousel.removeChild(carousel.children[i])
-        }
-    }
-}, 1000)
+const observer = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting)
+        new Swiper(".swiper", {
+            loop: true,
+            allowTouchMove: false,
+            spaceBetween: 50,
+            slidesPerView: 4,
+            speed: 800,
+            autoplay: { delay: 800 },
+        })
+})
+isHome() && observer.observe(document.querySelector(".swiper-wrapper"))

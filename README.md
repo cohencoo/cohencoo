@@ -1,6 +1,6 @@
 # Hi, I’m Cohen.
 
-> I’m a passionate full-stack developer.
+I’m a passionate full-stack developer.
 
 I’ve been creating websites out of personal interest for over 6 years, which started with the basics of HTML, gradually leading into the freelance industry with international clients. In 2023 as a side-hustle, I registered my own business; [Bespoke Web Dev](https://bespokewebdev.com), managing website development on an increasingly larger scale.
 
