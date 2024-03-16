@@ -51,7 +51,7 @@ function closeMenu() {
     updateMenuButton()
 }
 
-nav.innerHTML = `<a href="/"><img src="assets/icons/logo.png" alt="logo" /></a>
+nav.innerHTML = `<a href="/"><div class="logo"></div></a>
     <ul>
         <li><a href="/#about">About</a></li>
         <li><a href="/projects/">Projects</a></li>
@@ -323,78 +323,3 @@ document.addEventListener("scroll", () => {
         document.querySelector("#services-cta").style.opacity = "0.5"
     }
 })
-
-let items = [
-    {
-        name: "HTML",
-        icon: "assets/icons/html.png",
-    },
-    {
-        name: "CSS",
-        icon: "assets/icons/css.png",
-    },
-    {
-        name: "JavaScript",
-        icon: "assets/icons/js.png",
-    },
-    {
-        name: "React",
-        icon: "assets/icons/react.png",
-    },
-    {
-        name: "Typescript",
-        icon: "assets/icons/typescript.png",
-    },
-    {
-        name: "NodeJS",
-        icon: "assets/icons/node.png",
-    },
-    {
-        name: "Python",
-        icon: "assets/icons/python.png",
-    },
-    {
-        name: "Socket.io",
-        icon: "assets/icons/socket.svg",
-    },
-    {
-        name: "MongoDB",
-        icon: "assets/icons/mongo.png",
-    },
-    {
-        name: "Electron",
-        icon: "assets/icons/electron.png",
-    },
-    {
-        name: "Git",
-        icon: "assets/icons/git.png",
-    },
-    {
-        name: "SCSS",
-        icon: "assets/icons/scss.png",
-    },
-]
-
-isHome() &&
-    items.forEach((item) => {
-        const div = document.createElement("div")
-        div.classList.add("swiper-slide")
-        div.innerHTML = `
-        <img style="width: 8rem; height: 8rem" src="${item.icon}" draggable="false" alt="${item.name}" />
-        <p>${item.name}</p>
-    `
-        document.querySelector(".swiper-wrapper").appendChild(div)
-    })
-
-const observer = new IntersectionObserver((entries) => {
-    if (entries[0].isIntersecting)
-        new Swiper(".swiper", {
-            loop: true,
-            allowTouchMove: false,
-            spaceBetween: 50,
-            slidesPerView: 4,
-            speed: 800,
-            autoplay: { delay: 800 },
-        })
-})
-isHome() && observer.observe(document.querySelector(".swiper-wrapper"))

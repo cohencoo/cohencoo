@@ -7,6 +7,7 @@
 ==================================================*/
 
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
 @import url("elements.css");
 
 :root {
@@ -16,7 +17,6 @@
     --banner: #151515;
     --nav: rgba(25, 25, 25, 0.8);
     --card: rgba(40, 40, 40, 0.5);
-    --wave-url: url(waves-dark.svg);
     --text: #ffffff;
     --subtext: #ccc;
     --link: #3355ff;
@@ -89,9 +89,21 @@ body {
     padding: 0;
     margin: 0;
     font-size: 16px;
-    background: var(--background);
+    background-color: var(--background);
     color: var(--text);
     font-family: "Montserrat", sans-serif;
+}
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url(noise.png);
+    background-size: 20%;
+    opacity: 0.3;
+    z-index: -10;
 }
 
 button {
@@ -115,9 +127,10 @@ button {
 
 .intro h1 {
     font-size: 4rem;
-    font-weight: lighter;
-    color: var(--subtext);
+    color: white;
     text-transform: uppercase;
+    font-family: "Lora", serif;
+    font-weight: lighter;
     margin: 0;
 }
 
@@ -176,11 +189,14 @@ nav {
     -webkit-backdrop-filter: blur(1rem);
 }
 
-nav img {
+nav .logo {
     width: 3rem;
     height: 3rem;
     border-radius: 100rem;
     margin-right: 2rem;
+    background-image: url(../logo.png);
+    background-size: cover;
+    background-position: center;
 }
 
 nav ul {
@@ -224,7 +240,7 @@ section .title {
 
 .start {
     position: relative;
-    padding: 2rem 15rem 5rem 15rem;
+    padding: 2rem 15rem;
     font-size: 1.2rem;
     line-height: 1.5;
 }
@@ -243,58 +259,78 @@ section .title {
     -webkit-text-fill-color: transparent;
     font-size: 4rem;
     font-weight: 600;
-}
-
-.featuring-title {
-    color: #ccc;
-    font-size: 3rem;
-    text-align: center;
-    text-transform: uppercase;
-    font-weight: 400;
-    margin: 1rem auto;
+    margin-top: -1rem;
 }
 
 .showcase {
-    padding: 0 1rem;
     margin: 3rem 0 10rem 0;
     display: flex;
-    max-width: 1200px;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
+    width: 100%;
     justify-content: space-between;
     gap: 1rem;
 }
 
+.showcase::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: radial-gradient(circle at 50% 50%, rgb(74, 104, 255) 0%, transparent 30%),
+        radial-gradient(circle at 30% 60%, rgb(98, 73, 144) 0%, transparent 35%),
+        radial-gradient(circle at 70% 60%, rgb(137, 84, 159) 0%, transparent 30%),
+        radial-gradient(circle at 50% 70%, rgb(40, 58, 255) 0%, transparent 30%);
+
+    z-index: -1;
+    opacity: 0.5;
+}
+
 .showcase .card {
     width: 100%;
-    background: linear-gradient(315deg, #001d28 0%, #0f1423 74%);
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(5rem);
+    -webkit-backdrop-filter: blur(5rem);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 1rem;
-    height: fit-content;
+    height: 500px;
 }
 
-.showcase .card:last-child {
-    background: linear-gradient(315deg, #292424 0%, #290000 74%);
+.showcase .card {
+    padding: 10px;
+    color: white;
 }
 
-.showcase .card .details {
-    padding: 1.5rem 1.5rem 0 1.5rem;
-}
-
-.showcase .card .details h2 {
-    font-size: 2rem;
-    font-weight: 600;
-    margin: 0 0 7px 0;
-}
-
-.showcase .card img {
+.showcase .card .peek {
     width: 100%;
     height: auto;
     object-fit: cover;
     aspect-ratio: 16/9;
+    border-radius: 1rem;
+}
+
+.showcase .card .details {
+    padding: 0 10px;
     margin-top: 1rem;
-    margin-bottom: -8px;
-    border-radius: 0 0 1rem 1rem;
+}
+.showcase .card .details a {
+    color: rgb(58, 219, 255);
+}
+
+.showcase .card .details h2 {
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin: 0 0 7px 0;
+    color: white;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 8px;
 }
 
 .freelance {
@@ -467,6 +503,10 @@ footer h2 {
         display: flex !important;
     }
 
+    .showcase .card .details h2 {
+        font-size: 1.2rem !important;
+    }
+
     .freelance {
         margin: 0;
         width: 100% !important;
@@ -484,11 +524,6 @@ footer h2 {
         display: none;
     }
 
-    .featuring-title {
-        font-size: 2rem !important;
-        margin-bottom: -2rem;
-    }
-
     .start h2 {
         font-size: 2.5rem !important;
     }
@@ -499,7 +534,7 @@ footer h2 {
 }
 
 #canvas {
-    filter: blur(1.5px);
+    filter: blur(1px);
 }
 
 @media screen and (max-width: 900px) {

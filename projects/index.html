@@ -2,48 +2,60 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="author" content="Cohen Coombs" />
         <meta
             name="description"
-            content="Dedicated web graphic/illustration, designer and developer with over 6 years in experience."
+            content="Cohen Coombs, full-stack developer, website design & development services; Bespoke Web Dev"
         />
         <meta
             name="keywords"
-            content="Cohen, Coombs, Cohen Coombs, CohenCoombs, cohencoombs, cohen, coombs, cohen coombs, website, developer, freelance, website freelancer, looking for website, website design, create website, designer, graphic, design, make website, pages, page, webpage"
+            content="cohenco, cohen coombs, cohencoombs, web, website, web design, web development, web creation, build website, website design, website development, website design adelaide, website development adelaide, web design adelaide, web designer, website designer, adelaide, ecommerce, ecommerce development adelaide, digital marketing, seo, seo adelaide, adelaide web design, adelaide website design, graphic design, website adelaide"
         />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Cohen - My Projects</title>
+        <meta name="robots" content="index, follow" />
         <link rel="stylesheet" href="../assets/style.css" />
-        <link rel="shortcut icon" href="../assets/icons/logo.png" type="image/x-icon" />
+        <link rel="shortcut icon" href="../logo.png" type="image/x-icon" />
+        <title>Cohen - My Projects</title>
     </head>
     <body>
-        <script>
-            0
-        </script>
+        <div class="backdrop"></div>
         <nav></nav>
         <div class="project-banner">
-            <h1 class="project-title">Projects</h1>
+            <h1 class="project-title">Featured Projects</h1>
         </div>
-        <section>
-            <h1 style="font-weight: 600;">Featured Projects</h1>
-            <p style="margin: -0.5rem 0 2rem 0; border: 0;" class="subtitle">
-                Showing projects within 2021 - 2023
-            </p>
-            <div class="projects"></div>
-        </section>
+        <section id="projects-container"></section>
         <footer></footer>
         <script>
             var skills = [
                 {
+                    year: 2024,
+                    name: "UpStore",
+                    icon: "upstore",
+                    url: "https://upstore.au",
+                    display_url: "upstore.au",
+                    description: "UpStore makes e-commerce retail accessible for all businesses.",
+                },
+                {
+                    year: 2023,
+                    name: "ImageCryption",
+                    icon: "imageCryption",
+                    url: "https://imagecryption.online",
+                    display_url: "imagecryption.online",
+                    description:
+                        "Unrivaled Media Encryption –– Turn your images/videos into highly encrypted files that only you can decrypt. Free. Instant. Serverless. Secure. Your Control.",
+                },
+                {
+                    year: 2023,
                     name: "VisioneerList",
                     icon: "visioneerlist",
-                    url: "https://visioneerlist.com",
-                    display_url: "visioneerlist.com",
+                    url: false,
+                    display_url: false,
                     description:
                         "VisioneerList provides a medium for emerging, talented & unique businesses to gain recognition and exposure to potential employees, or customers & users.",
                 },
                 {
+                    year: 2023,
                     name: "PasteMac",
                     url: "https://github.com/cohencoo/pastemac",
                     display_url: "github.com/cohencoo/pastemac",
@@ -51,28 +63,40 @@
                         "PasteMac is a MacOS app & keyboard utility for pasting text to the clipboard. Text you've previously copied will populate your clipboard on Pastemac. Clicking any copied item inside your clipboard will automatically copy it to your OSX.",
                 },
                 {
+                    year: 2023,
+                    name: "Mirrored",
+                    url: "https://mirrored.store",
+                    display_url: "mirrored.store",
+                    description:
+                        "AirPlay across devices –– Share your screen across devices, expanding your workspace wirelessly.",
+                },
+                {
+                    year: 2021,
                     name: "Flaredocs",
-                    url: "https://flaredocs.coclub.repl.co",
-                    display_url: "www.flaredocs.co",
+                    url: false,
+                    display_url: false,
                     description:
                         "Flaredocs, a free, fast and secure live-time word editor. Documents save automatically with many productive features to assist with writing.",
                 },
                 {
+                    year: 2021,
                     name: "Clustoro",
-                    url: "",
-                    display_url: "",
+                    url: false,
+                    display_url: false,
                     description:
                         "Clustoro is a message & media based social media platform. Users can freely communicate with others, access useful settings, moderation & utility and create versatile workspaces.",
                 },
                 {
+                    year: 2022,
                     name: "Auflare Intelligence",
                     icon: "auflare",
-                    url: "https://auflare.coclub.repl.co",
-                    display_url: "www.auflare.co",
+                    url: false,
+                    display_url: false,
                     description:
                         "Auflare Intelligence is an Artificial Intelligence capable of understanding human intent, in order to provide concise information sourced from the internet.",
                 },
                 {
+                    year: 2022,
                     name: "Auflare Type",
                     icon: "type",
                     url: "https://cohenco.co/type",
@@ -81,6 +105,7 @@
                         "Auflare Type is aimed at improving typing speed and accuracy, by providing a new way to type and improve your typing skills.",
                 },
                 {
+                    year: 2021,
                     name: "Physiognomy",
                     icon: "ai",
                     url: "https://cohenco.co/face",
@@ -89,6 +114,7 @@
                         "Physiognomy is the practice of analyzing a person's facial features or expressions. This project uses Artificial Intelligence to recognize a person's facial features and expressions.",
                 },
                 {
+                    year: 2021,
                     name: "3.1415...",
                     icon: "pi",
                     url: "pi.html",
@@ -97,6 +123,7 @@
                         "This simple game involves recalling digits from Pi. It was built in order to improve the accuracy of storing and recalling information.",
                 },
                 {
+                    year: 2021,
                     name: "Music Visualizer",
                     icon: "visualizer",
                     url: "visualizer/",
@@ -105,14 +132,16 @@
                         "A music visualizer which analyzes the change of frequency throughout a song, creating a visual representation on a 3D sphere.",
                 },
                 {
+                    year: 2021,
                     name: "Defency",
                     icon: "defency",
-                    url: "",
-                    display_url: "",
+                    url: false,
+                    display_url: false,
                     description:
                         "Defency is a web-based app which specifically connects South Australian lawyers in one place.",
                 },
                 {
+                    year: 2021,
                     name: "Teleprompter",
                     icon: "reader",
                     url: "reader/",
@@ -121,29 +150,58 @@
                         "A modern, lightweight and minimalist Teleprompter. Sound like a professional by reading at an attractive speed.",
                 },
                 {
+                    year: 2021,
                     name: "InquiriesAi",
                     icon: "inquiries",
-                    url: "",
-                    display_url: "",
+                    url: false,
+                    display_url: false,
                     description:
                         "InquiriesAi is a sublime integration which helps with customer management. InquiriesAi uses Artificial Intelligence to engage with a customer and recommend the best service available.",
                 },
             ]
-            skills.forEach((skill) => {
-                var item = document.createElement("div")
-                item.className = "project"
-                item.innerHTML = `<img src="../assets/icons/${
-                    skill.icon || skill.name.toLocaleLowerCase()
-                }.png" alt="${skill.name}">
-                <h2>${skill.name}</h2>
-                <a target="_blank" rel="noopener noreferrer" href="${skill.url}">${
-                    skill.display_url ||
-                    "<span style='color: #888; font-size: 0.9rem; cursor: not-allowed'>[Discontinued]</span>"
-                }</a>
-                <p>${skill.description} </p>`
-                document.getElementsByClassName("projects")[0].appendChild(item)
-            })
+
+            const projectsContainer = document.getElementById("projects-container")
+            const projectGrids = []
+            let yearCategory
+
+            skills
+                .sort((a, b) => {
+                    if (a.year === b.year) {
+                        return a.name.localeCompare(b.name)
+                    }
+                    return b.year - a.year
+                })
+                .forEach((skill) => {
+                    if (yearCategory !== skill.year) {
+                        yearCategory = skill.year
+                        var yearHeader = document.createElement("h1")
+                        yearHeader.textContent = yearCategory
+                        yearHeader.style =
+                            "font-weight: 300; font-size: 5rem; color: var(--subtext);"
+                        projectsContainer.appendChild(yearHeader)
+
+                        var grid = document.createElement("div")
+                        grid.className = "projects"
+                        projectsContainer.appendChild(grid)
+                        projectGrids.push(grid)
+                    }
+
+                    var item = document.createElement("div")
+                    item.className = "project"
+                    item.innerHTML = `<img src="../assets/icons/${
+                        skill.icon || skill.name.toLocaleLowerCase()
+                    }.png" alt="${skill.name}">
+                            <h2>${skill.name}</h2>
+                            ${
+                                skill.display_url
+                                    ? `<a target="_blank" href="${skill.url}">${skill.display_url}</a>`
+                                    : `<span style="color: #888; font-size: 0.9rem;">Domain No Longer Registered</span>`
+                            }
+
+                            <p>${skill.description} </p>`
+                    projectGrids[projectGrids.length - 1].appendChild(item)
+                })
         </script>
-        <script src="/assets/main.js"></script>
+        <script src="../assets/main.js"></script>
     </body>
 </html>

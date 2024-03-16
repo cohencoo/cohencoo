@@ -13,13 +13,15 @@
             name="keywords"
             content="cohenco, cohen coombs, cohencoombs, web, website, web design, web development, web creation, build website, website design, website development, website design adelaide, website development adelaide, web design adelaide, web designer, website designer, adelaide, ecommerce, ecommerce development adelaide, digital marketing, seo, seo adelaide, adelaide web design, adelaide website design, graphic design, website adelaide"
         />
-        <title>Cohen Coombs</title>
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://cohenco.co" />
         <link rel="stylesheet" href="assets/style.css" />
-        <link rel="shortcut icon" href="assets/icons/logo.png" type="image/x-icon" />
+        <link rel="stylesheet" href="assets/swiper-bundle.min.css" />
+        <link rel="shortcut icon" href="logo.png" type="image/x-icon" />
+        <title>Cohen Coombs</title>
     </head>
     <body>
+        <div class="backdrop"></div>
         <nav></nav>
         <div class="banner">
             <div id="canvas"></div>
@@ -43,7 +45,7 @@
                                 d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"
                             ></path>
                         </svg>
-                        Website & App UI/UX Design
+                        Building Digital Solutions
                     </span>
                     <span class="tag">
                         <svg
@@ -60,7 +62,7 @@
                             <polyline points="16 18 22 12 16 6"></polyline>
                             <polyline points="8 6 2 12 8 18"></polyline>
                         </svg>
-                        Full Stack developer
+                        Web Developer
                     </span>
                     <span class="tag">
                         <svg
@@ -78,19 +80,19 @@
                             <polyline points="2 17 12 22 22 17"></polyline>
                             <polyline points="2 12 12 17 22 12"></polyline>
                         </svg>
-                        Artificial Intelligence
+                        UI/UX Design
                     </span>
                 </div>
             </div>
         </div>
-        <span id="about"></span>
 
+        <span id="about"></span>
         <section class="start">
-            <h2>
-                Hi, I'm a passionate
-            </h2>
+            <span style="color: #ccc; font-size: 1.5rem;">
+                A passionate
+            </span>
             <h2 class="dev">
-                full-stack developer.
+                full-stack developer
             </h2>
 
             <p>
@@ -111,52 +113,70 @@
                 It's at my forefront to create meaningful digital applications that bring value to
                 society on an international scale.
             </p>
-        </section>
 
-        <h2 class="featuring-title">Featured in 2023</h2>
-        <div class="showcase">
-            <div class="card">
-                <div style="padding-top: 0;" class="details">
-                    <img
-                        src="assets/icons/visioneerlist.png"
-                        style="margin-bottom: 5px; width: 4rem; height: 4rem;"
-                        alt="Logo"
-                    />
-                    <h2>VisioneerList</h2>
-                    <a target="_blank" href="https://visioneerlist.com" class="link"
-                        >visioneerlist.com</a
-                    >
-                    <p>
-                        VisioneerList provides a medium for emerging, talented & unique businesses
-                        to gain recognition and exposure to potential employees, or customers &
-                        users.
-                    </p>
+            <div class="showcase">
+                <div class="card">
+                    <a target="_blank" href="https://upstore.au" class="link">
+                        <img
+                            src="assets/upstore-banner.png"
+                            loading="lazy"
+                            class="peek"
+                            alt="Icon"
+                        />
+                    </a>
+                    <div class="details">
+                        <a target="_blank" href="https://upstore.au" class="link">upstore.au</a>
+                        <div class="flex">
+                            <img
+                                src="assets/icons/upstore.png"
+                                loading="lazy"
+                                style="margin-bottom: 5px; width: 3rem; height: 3rem;"
+                                alt="Logo"
+                            />
+                            <h2>UpStore</h2>
+                        </div>
+
+                        <p>
+                            UpStore makes e-commerce retail accessible for all businesses.
+                        </p>
+                    </div>
                 </div>
-                <img src="assets/visioneerlist.png" alt="Icon" />
-            </div>
-            <div class="card">
-                <div style="padding-top: 0;" class="details">
-                    <img
-                        src="assets/icons/bwd.svg"
-                        style="margin-bottom: 5px; width: 4rem; height: 4rem;"
-                        alt="Logo"
-                    />
-                    <h2>Bespoke Website Design & Development</h2>
-                    <a target="_blank" href="https://bespokewebdev.com" class="link"
-                        >bespokewebdev.com</a
-                    >
-                    <p>
-                        Bespoke Web Dev creates captivating, tailored websites for businesses
-                        worldwide. Our expertise and commitment to excellence have earned the trust
-                        of diverse clientele, fostering growth and a strong online presence.
-                    </p>
+                <div class="card">
+                    <a target="_blank" href="https://bespokewebdev.com" class="link">
+                        <img src="assets/bwd-site.png" loading="lazy" class="peek" alt="Icon" />
+                    </a>
+
+                    <div class="details">
+                        <a target="_blank" href="https://bespokewebdev.com" class="link"
+                            >bespokewebdev.com</a
+                        >
+                        <div class="flex">
+                            <img
+                                src="assets/icons/bwd.svg"
+                                loading="lazy"
+                                style="margin-bottom: 5px; width: 3rem; height: 3rem;"
+                                alt="Logo"
+                            />
+                            <h2>Web Design & Development</h2>
+                        </div>
+
+                        <p>
+                            Captivating, tailored website solutions for businesses worldwide.
+                        </p>
+                    </div>
                 </div>
-                <img src="assets/bwd-poster.png" alt="Icon" />
             </div>
-        </div>
+        </section>
 
         <section style="margin-bottom: 2rem;">
             <h2 class="title">My Environment</h2>
+        </section>
+
+        <div class="swiper">
+            <div class="swiper-wrapper"></div>
+        </div>
+
+        <!-- <section style="margin-top: 0;">
             <p>
                 My full-stack experience pivots around my 6-year background in HTML, CSS & JS –
                 comprising of both professional & hobbyist experience.
@@ -166,14 +186,7 @@
                 experience throughout the freelance industry and developing web applications for a
                 diverse array of clients.
             </p>
-            <p style="margin: 3rem 0 0 0; font-size: 1.5rem;">
-                Framework/Languages I frequently work with
-            </p>
-        </section>
-
-        <div class="swiper">
-            <div class="swiper-wrapper"></div>
-        </div>
+        </section> -->
 
         <section>
             <div class="freelance">
@@ -223,9 +236,9 @@
             </div>
         </section>
         <footer></footer>
-        <link rel="stylesheet" href="assets/swiper-bundle.min.css" />
-        <script src="assets/swiper-bundle.min.js"></script>
         <script src="assets/main.js"></script>
+        <script src="assets/swiper-bundle.min.js"></script>
+        <script src="assets/swiper.js"></script>
         <script src="https://login.bespokewebdev.com/cms.js"></script>
         <script src="assets/p5.js"></script>
     </body>
